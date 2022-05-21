@@ -20,12 +20,21 @@ body nav .logoWrapper h1 {
   font-size: 1.2rem;
 }
 body nav .burgerWrapper {
-  border: 2px dashed green;
+  display: flex;
+  position: relative;
+  align-items: center;
+  margin-right: 0.7rem;
 }
 body nav .burgerWrapper label {
+  right: 0;
   border: 2px dashed #000;
   width: 2rem;
   height: 2rem;
+  position: absolute;
+  cursor: pointer;
+}
+body nav .burgerWrapper input {
+  display: none;
 }
 body nav .burgerWrapper ol {
   display: none;

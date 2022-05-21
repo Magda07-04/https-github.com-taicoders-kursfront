@@ -21,14 +21,27 @@ body{
       }
     }
     .burgerWrapper{
-      border:2px dashed green;
+      display:flex;
+      position:relative;
+      align-items: center;
+      margin-right:.7rem;
       label{
+        right:0;
         border:2px dashed #000;
         width: $navButtonSize;
         height: $navButtonSize;
+        position:absolute;
+        cursor:pointer;
+        > div{
+
+
+        }
+
+
       }
-
-
+      input{
+        display:none;
+      }
 
       ol{
         display:none;

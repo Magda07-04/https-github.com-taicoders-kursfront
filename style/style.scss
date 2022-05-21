@@ -1,13 +1,19 @@
 $navButtonSize: 2rem;
 
+*{box-sizing:border-box;}
 body{
   font-family: 'Lemon/Milk', sans-serif;
   // font-family: 'Lemon/Milk light', sans-serif;
   background-color: #FDF6EB;
+  margin:0;
   nav{
-    border:2px dashed red;
+    z-index:2;
+    position: relative;
+    background-color: #FDF6EB;
     display:flex;
     justify-content:space-between;
+    padding: 2rem 2rem .5rem 2rem;
+    border-bottom:2px solid #000;
     .logoWrapper{
       display:flex;
       align-items: center;
@@ -24,8 +30,8 @@ body{
       display:flex;
       position:relative;
       align-items: center;
-      margin-right:.7rem;
       label{
+        margin-right:.7rem;
         right:0;
         width: $navButtonSize;
         height: $navButtonSize;
@@ -51,7 +57,7 @@ body{
             }
             div:nth-child(2){
               width:20%;
-              background-color:orange;
+              background-color:#FF5202;
             }
           
           }
@@ -64,18 +70,25 @@ body{
       input{
         display:none;
       }
-
       ol{
-        display:none;
+        z-index:-1;
+        position:absolute;
+        top:-100vh;
+        transition: .5s;
+        display:flex;
+        flex-direction: column;
+        right:-2rem;
+        padding:20px 10px;
+        list-style:none;
+        width:100vw;
+      }
+
+      #toggler:checked ~ {
+        ol{
+          top:100%;
+        }
       }
 
     }
-
-
   }
-
-
-
-
-
 }

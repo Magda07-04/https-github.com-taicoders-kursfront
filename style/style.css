@@ -1,3 +1,32 @@
 body {
-  background-color: rgba(255, 0, 0, 0.232);
-}/*# sourceMappingURL=style.css.map */
+  font-family: "Lemon/Milk", sans-serif;
+  background-color: #FDF6EB;
+}
+body nav {
+  border: 2px dashed red;
+  display: flex;
+  justify-content: space-between;
+}
+body nav .logoWrapper {
+  display: flex;
+  align-items: center;
+}
+body nav .logoWrapper img {
+  width: 2rem;
+  height: 2rem;
+  margin: 0.7rem;
+}
+body nav .logoWrapper h1 {
+  font-size: 1.2rem;
+}
+body nav .burgerWrapper {
+  border: 2px dashed green;
+}
+body nav .burgerWrapper label {
+  border: 2px dashed #000;
+  width: 2rem;
+  height: 2rem;
+}
+body nav .burgerWrapper ol {
+  display: none;
+}

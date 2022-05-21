@@ -1,4 +1,46 @@
+$navButtonSize: 2rem;
+
 body{
-  // background-color: #E5E5E5;
-  background-color: rgba(255, 0, 0, 0.232);
+  font-family: 'Lemon/Milk', sans-serif;
+  // font-family: 'Lemon/Milk light', sans-serif;
+  background-color: #FDF6EB;
+  nav{
+    border:2px dashed red;
+    display:flex;
+    justify-content:space-between;
+    .logoWrapper{
+      display:flex;
+      align-items: center;
+      img{
+        width: $navButtonSize;
+        height: $navButtonSize;
+        margin: .7rem;
+      }
+      h1{
+        font-size: 1.2rem;
+      }
+    }
+    .burgerWrapper{
+      border:2px dashed green;
+      label{
+        border:2px dashed #000;
+        width: $navButtonSize;
+        height: $navButtonSize;
+      }
+
+
+
+      ol{
+        display:none;
+      }
+
+    }
+
+
+  }
+
+
+
+
+
 }

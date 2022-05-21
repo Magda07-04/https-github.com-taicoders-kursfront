@@ -27,12 +27,34 @@ body{
       margin-right:.7rem;
       label{
         right:0;
-        border:2px dashed #000;
         width: $navButtonSize;
         height: $navButtonSize;
         position:absolute;
         cursor:pointer;
         > div{
+          $barHeight:6px;
+          height:$barHeight;
+          background-color: #000;
+          position:absolute;
+          width:100%;
+          &:nth-child(2){
+            top: calc($navButtonSize / 2 - $barHeight / 2);
+          }
+          &:nth-child(3){
+            bottom:0;
+            display:flex;
+            background-color: transparent;
+            justify-content:space-between;
+            div:nth-child(1){
+              background-color: #000;
+              width:60%;
+            }
+            div:nth-child(2){
+              width:20%;
+              background-color:orange;
+            }
+          
+          }
 
 
         }

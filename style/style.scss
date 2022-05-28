@@ -1,17 +1,16 @@
 $navButtonSize: 2rem;
 
 *{box-sizing:border-box;}
+
 body{
   font-family: 'Lemon/Milk', sans-serif;
   // font-family: 'Lemon/Milk light', sans-serif;
   background-color: #FDF6EB;
   margin:0;
   nav{
-    z-index:2;
-    position: relative;
-    background-color: #FDF6EB;
     display:flex;
     justify-content:space-between;
+    background-color: #FDF6EB;
     padding: 2rem 2rem .5rem 2rem;
     border-bottom:2px solid #000;
     .logoWrapper{
@@ -30,6 +29,8 @@ body{
       display:flex;
       position:relative;
       align-items: center;
+      border:2px solid blue;
+
       label{
         margin-right:.7rem;
         right:0;
@@ -37,14 +38,25 @@ body{
         height: $navButtonSize;
         position:absolute;
         cursor:pointer;
+        // label > div - bezpośrednie dzieci divy od labela 
+        // ( nie obejmuje wnuków labela ) 
+        // border:3px solid red;
         > div{
           $barHeight:6px;
           height:$barHeight;
           background-color: #000;
           position:absolute;
           width:100%;
+          // & - odnosi się do tego selektora
+          // wewnątrz którego się znajduje
           &:nth-child(2){
-            top: calc($navButtonSize / 2 - $barHeight / 2);
+            // przesuń diva na środek labela
+            margin-top: calc($navButtonSize/2);
+            // przesuń środek diva na środek labela
+            top: calc( -#{$barHeight} / 2 )
+            // top: calc( $barHeight / 2 - $barHeight);
+            // oneliner:
+            // top: calc($navButtonSize / 2 - $barHeight / 2);
           }
           &:nth-child(3){
             bottom:0;
@@ -61,8 +73,6 @@ body{
             }
           
           }
-
-
         }
 
 
@@ -72,9 +82,11 @@ body{
       }
       ol{
         z-index:-1;
+        background-color: red;
+        border:2px solid red;
         position:absolute;
         top:-100vh;
-        transition: .5s;
+        transition: 1s;
         display:flex;
         flex-direction: column;
         right:-2rem;
@@ -91,4 +103,5 @@ body{
 
     }
   }
+
 }

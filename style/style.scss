@@ -1,6 +1,8 @@
 $navButtonSize: 2rem;
 $bgColor:#FDF6EB;
 $barHeight:6px;
+$globalPadding: 2.7rem;
+$border: 2px solid #000;
 *{box-sizing:border-box;}
 body{
   font-family: 'Lemon/Milk', sans-serif;
@@ -12,7 +14,7 @@ body{
     justify-content:space-between;
     background-color: $bgColor;
     padding: 2rem 2rem .5rem 2rem;
-    border-bottom:2px solid #000;
+    border-bottom:$border;
     .logoWrapper{
       display:flex;
       align-items: center;
@@ -122,6 +124,25 @@ body{
   main {
     position:relative;
     z-index:-2;
+    .titleWrapper{
+      border-left:$border;
+      margin-left:$globalPadding;
+      padding: 2rem 2rem 4rem 1rem;
+      h2{
+        font-size: 2rem;
+        margin:.5rem 0;
+      }
+      p{  
+        font-family: 'Lemon/Milk light', sans-serif;
+        margin: 2rem 0;
+      }
+      button{display:none;}
+      b{font-size:2rem;}
+    }
+    .imgContainer{
+      border-top:$border;
+    }
+
 
   }
 

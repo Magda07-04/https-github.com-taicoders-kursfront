@@ -139,11 +139,28 @@ body{
       button{display:none;}
       b{font-size:2rem;}
     }
+
     .imgContainer{
       border-top:$border;
+      border-bottom:$border;
+      .imgWrapper{
+        background-color:#FE682F;
+        margin:0 $globalPadding;
+
+        border-left:$border;
+        border-right:$border;
+        
+
+        .img{
+          min-height:80vh;
+          background-image: url("../img/man-watch.webp");
+          background-size: cover;
+          background-position: center;
+          border-radius:50vw;
+        }
+      }
     }
 
 
   }
-
 }

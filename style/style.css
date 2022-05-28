@@ -126,4 +126,18 @@ body main .titleWrapper b {
 }
 body main .imgContainer {
   border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
+}
+body main .imgContainer .imgWrapper {
+  background-color: #FE682F;
+  margin: 0 2.7rem;
+  border-left: 2px solid #000;
+  border-right: 2px solid #000;
+}
+body main .imgContainer .imgWrapper .img {
+  min-height: 80vh;
+  background-image: url("../img/man-watch.webp");
+  background-size: cover;
+  background-position: center;
+  border-radius: 50vw;
 }

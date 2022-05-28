@@ -84,3 +84,7 @@ body nav .burgerWrapper ol {
 body nav .burgerWrapper #toggler:checked ~ ol {
   top: 100%;
 }
+body > div {
+  position: relative;
+  z-index: -2;
+}

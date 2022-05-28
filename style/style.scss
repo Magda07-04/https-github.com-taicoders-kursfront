@@ -1,16 +1,18 @@
 $navButtonSize: 2rem;
+$bgColor:#FDF6EB;
+$barHeight:6px;
 
 *{box-sizing:border-box;}
 
 body{
   font-family: 'Lemon/Milk', sans-serif;
   // font-family: 'Lemon/Milk light', sans-serif;
-  background-color: #FDF6EB;
+  background-color: $bgColor;
   margin:0;
   nav{
     display:flex;
     justify-content:space-between;
-    background-color: #FDF6EB;
+    background-color: $bgColor;
     padding: 2rem 2rem .5rem 2rem;
     border-bottom:2px solid #000;
     .logoWrapper{
@@ -29,7 +31,6 @@ body{
       display:flex;
       position:relative;
       align-items: center;
-      border:2px solid blue;
 
       label{
         margin-right:.7rem;
@@ -42,7 +43,7 @@ body{
         // ( nie obejmuje wnuków labela ) 
         // border:3px solid red;
         > div{
-          $barHeight:6px;
+          transition:.5s;
           height:$barHeight;
           background-color: #000;
           position:absolute;
@@ -82,11 +83,11 @@ body{
       }
       ol{
         z-index:-1;
-        background-color: red;
-        border:2px solid red;
+        margin:0;
+        background-color: $bgColor;
         position:absolute;
-        top:-100vh;
-        transition: 1s;
+        top:calc( -100% - $navButtonSize);
+        transition: .5s;
         display:flex;
         flex-direction: column;
         right:-2rem;
@@ -94,17 +95,33 @@ body{
         list-style:none;
         width:100vw;
       }
-
       #toggler:checked ~ {
         ol{
           top:100%;
+        }
+        label > div{
+          // krzyżyk
+          top: calc($navButtonSize / 2 - $barHeight / 2);
+          &:nth-child(1){
+            transform: rotate(45deg);
+          }
+          &:nth-child(2){
+            opacity:0;
+          }
+          &:nth-child(3){
+            transform: rotate(-45deg);
+            // kropeczka na środku
+            div:nth-child(1){display:none;}
+            background-color: #000;
+            justify-content: center;
+          }
         }
       }
 
     }
   }
 
-  >div {
+  main {
     position:relative;
     z-index:-2;
 

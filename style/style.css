@@ -30,7 +30,6 @@ body nav .burgerWrapper {
   display: flex;
   position: relative;
   align-items: center;
-  border: 2px solid blue;
 }
 body nav .burgerWrapper label {
   margin-right: 0.7rem;
@@ -41,6 +40,7 @@ body nav .burgerWrapper label {
   cursor: pointer;
 }
 body nav .burgerWrapper label > div {
+  transition: 0.5s;
   height: 6px;
   background-color: #000;
   position: absolute;
@@ -69,11 +69,11 @@ body nav .burgerWrapper input {
 }
 body nav .burgerWrapper ol {
   z-index: -1;
-  background-color: red;
-  border: 2px solid red;
+  margin: 0;
+  background-color: #FDF6EB;
   position: absolute;
-  top: -100vh;
-  transition: 1s;
+  top: calc(-100% - 2rem);
+  transition: 0.5s;
   display: flex;
   flex-direction: column;
   right: -2rem;
@@ -84,7 +84,24 @@ body nav .burgerWrapper ol {
 body nav .burgerWrapper #toggler:checked ~ ol {
   top: 100%;
 }
-body > div {
+body nav .burgerWrapper #toggler:checked ~ label > div {
+  top: calc(1rem - 3px);
+}
+body nav .burgerWrapper #toggler:checked ~ label > div:nth-child(1) {
+  transform: rotate(45deg);
+}
+body nav .burgerWrapper #toggler:checked ~ label > div:nth-child(2) {
+  opacity: 0;
+}
+body nav .burgerWrapper #toggler:checked ~ label > div:nth-child(3) {
+  transform: rotate(-45deg);
+  background-color: #000;
+  justify-content: center;
+}
+body nav .burgerWrapper #toggler:checked ~ label > div:nth-child(3) div:nth-child(1) {
+  display: none;
+}
+body main {
   position: relative;
   z-index: -2;
 }

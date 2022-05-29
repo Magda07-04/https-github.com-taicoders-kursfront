@@ -6,6 +6,19 @@ $border: 2px solid #000;
 $defaultFont:'Lemon/Milk', sans-serif;
 $lightFont:'Lemon/Milk light', sans-serif;
 
+@mixin arrow($w, $h, $x){
+  &:before{
+    content: "";
+    background-image: url("../img/arrow.svg");
+    background-size:contain;
+    background-repeat: no-repeat;
+    position:absolute;
+    width:$w;
+    height:$h;
+    margin-left:$x;
+  }
+}
+
 *{box-sizing:border-box;}
 
 a{
@@ -210,7 +223,9 @@ body{
       .buttonContainer{
         text-align: center;
         padding:$globalPadding 0;
-
+        button{
+          @include arrow(4rem, 2rem, 8rem);
+        }
       }
       .imgWrapper{
         .img{
@@ -316,6 +331,7 @@ body{
       button{
         display:flex !important;
         margin: 2rem 0;
+        @include arrow(8rem, 4rem, 8rem)
       }
 
     }

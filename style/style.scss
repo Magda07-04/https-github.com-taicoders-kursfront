@@ -214,6 +214,9 @@ body{
       .contentWrapper{
         p{
           text-align: center;
+          padding:2rem 0;
+          margin:0;
+          line-height:2rem;
         }
       }
     }
@@ -223,15 +226,41 @@ body{
       border-bottom:$border;
       .trending{
         background-color: #FFEE01;
-        margin: $globalPadding;
+        margin:0 $globalPadding;
         border-left:$border;
         border-right:$border;
-
+        padding: 4rem 0;
+        display:flex;
+        justify-content: center;
+        p{
+          margin:0;
+          font-size:1.5rem;
+        }
       }
 
       
     }
-
-
   }
+}
+
+// Laptop view
+@media (min-width: 1280px){
+  nav{
+    padding:0 !important;
+    .burgerWrapper{
+      border:5px dashed red;
+      ol{
+        top:0 !important;
+        position:relative !important;
+        z-index:0 !important;
+        width:auto !important;
+        right:auto !important;
+        flex-direction: row !important;
+      }
+      label{
+        display:none;
+      }
+    }
+  }
+
 }

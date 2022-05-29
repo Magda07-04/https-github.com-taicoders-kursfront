@@ -78,7 +78,7 @@
         Shop Now
       </button>
     </div>
-    
+
     <div class="imgContainer">
       <div class="imgWrapper">
         <div class="img"></div>
@@ -107,6 +107,20 @@
     </div>
 
   </main>
+
+
+  <script>
+    let lock = false;
+    document.addEventListener( 'click', e => {
+      if( !lock ){
+        lock = true
+        if(!['A', 'LI', 'OL'].includes(e.target.nodeName)){
+          document.querySelector("#toggler").checked = false;
+        }
+      }
+      setTimeout(() => { lock = false; }, 100)
+    })
+  </script>
 
 </body>
 </html>

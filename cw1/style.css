@@ -1,0 +1,37 @@
+/* 
+selector { 
+  właściwość: wartość;
+} 
+*/
+body {
+  background-color: rgb(225, 130, 130);
+}
+
+.topArticle{
+  border: 5px dashed rgb(226, 80, 200);
+}
+
+h1{
+  /* 1 wartość - z każdej strony */
+  /* 2 wartości - góra i dół, prawo i lewo  */
+  /* padding:10px 100px; */
+  padding:0;
+  /* 4 wartości - góra, prawo, dół, lewo */
+  /* margin:10px 20px 30px 40px; */
+  margin:0;
+}
+
+.topHeader{
+  border:5px solid yellow;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:10px;
+
+}
+
+.messageForm{
+  border:2px dashed red;
+  display:flex;
+  flex-direction: column;  
+}

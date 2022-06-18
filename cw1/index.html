@@ -1,86 +1,87 @@
 <!DOCTYPE html>
 <html lang="pl">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wizytówka</title>
-</head>
-<body>
-  <header>
-    NAGŁÓWEK
-  </header>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wizytówka</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
 
-  <nav>
-    NAWIGACJA
-  </nav>
+    <header class="topHeader">
+      <h1> NAGŁÓWEK </h1>
+      <nav>
+        NAWIGACJA
+      </nav>
+    </header>
 
-  <main>
-    CONTENT
+    <main>
+      CONTENT
+      <article class="topArticle">
+        <header>
+          <h2> NAGŁÓWEK AUTONOMICZNEJ CZĘŚCI STRONY </h2>
+          <img 
+            src="https://www.w3schools.com/w3css/img_avatar3.png" 
+            alt="User image"
+            width="250px"
+            height="250px"
+          />
+        </header>
+
+        <table border="1">
+
+          <tr>
+            <th>Nazwa</th>
+            <th>Ocena</th>
+          </tr>
+
+          <tr>
+            <td>HTML</td>
+            <td>⭐⭐⭐⭐⭐</td>
+          </tr>
+
+          <tr>
+            <td>INNE</td>
+            <td>⭐⭐⭐</td>
+          </tr>
+
+        </table>
+
+
+      </article>
+
+      <section>
+        <header>
+          TEMATYCZNIE ZGRUPOWANY CONTENT
+        </header>
+
+        <ol>
+          <li>element 1</li>
+          <li>element 2</li>
+          <li>element 3</li>
+        </ol>
+
+      </section>
+
+    </main>
+
+    <!-- Formularz -->
     <article>
-      <header>
-        NAGŁÓWEK AUTONOMICZNEJ CZĘŚCI STRONY
-        <img 
-          src="https://www.w3schools.com/w3css/img_avatar3.png" 
-          alt="User image"
-          width="250px"
-          height="250px"
-        />
-      </header>
-
-      <table border="1">
-
-        <tr>
-          <th>Nazwa</th>
-          <th>Ocena</th>
-        </tr>
-
-        <tr>
-          <td>HTML</td>
-          <td>⭐⭐⭐⭐⭐</td>
-        </tr>
-
-        <tr>
-          <td>INNE</td>
-          <td>⭐⭐⭐</td>
-        </tr>
-
-      </table>
-
+      <h2>Napisz wiadomość</h2>
+      <form class="messageForm">
+        <input type="text" placeholder="EMAIL">
+        <textarea 
+          cols="30" 
+          rows="10" 
+          placeholder="TREŚĆ"></textarea>
+        <input type="submit" value="Wyślij">
+      </form>
 
     </article>
 
-    <section>
-      <header>
-        TEMATYCZNIE ZGRUPOWANY CONTENT
-      </header>
-
-      <ol>
-        <li>element 1</li>
-        <li>element 2</li>
-        <li>element 3</li>
-      </ol>
-
-    </section>
-
-  </main>
-
-  <!-- Formularz -->
-  <article>
-    <h2>Napisz wiadomość</h2>
-    <form>
-      <input type="text" placeholder="EMAIL">
-      <textarea 
-        cols="30" 
-        rows="10" 
-        placeholder="TREŚĆ"></textarea>
-      <input type="submit" value="Wyślij">
-    </form>
-
-  </article>
-
-  <footer>
-    STOPKA
-  </footer>
-</body>
+    <footer>
+      STOPKA
+    </footer>
+  </body>
 </html>

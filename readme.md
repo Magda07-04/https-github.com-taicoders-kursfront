@@ -20,3 +20,11 @@
 1. Wejdź do Source Control 
 2. W Polu Message/Komunikat wpisz nazwę wprowadzonych zmian, a następnie "skomituj (commit)" za pomocą "okejki" nad message.
 3. Synchronizuj zmiany
+
+
+## Udostępnianie strony - Github Pages
+1. Wejdź na stronę swojego repozytorium - https://github.com/`TWÓJUSERNAME`/`NAZWA_REPOZYTORIUM`
+2. Kliknij Settings -> Pages (po lewej stronie)
+3. Pod source (źródło) zmień None na master/main i kliknij save
+4. Wejdź na stronę https://`username`.github.io/`nazwarepozytorium`/`nazwafolderu`, przykład: 
+- https://apietryga.github.io/kursfront/cw1/

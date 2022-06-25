@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>POSITIONS</title>
+</head>
+<body>
+
+  <style>
+    body{
+      height:200vh;
+    }
+    div{
+      border:2px solid red;
+    }
+
+    .static{
+      position:static;
+    }
+    .fixed{
+      position:fixed;
+      right:0;
+      bottom:0;
+    }
+    .sticky{
+      position:sticky;
+      top:0;
+
+    }
+    .absolute{
+      position: absolute;
+      bottom:0;
+      right:0;
+    }
+    .relative{
+      position:relative;
+    }
+  </style>
+
+  <div class="sticky">STICKY</div> 
+  <div class="static">STATIC</div>
+  <div class="fixed">FIXED
+    
+  </div>
+
+  <div class="relative">
+    RELATIVE
+    <div class="absolute">ABSOLUTE1</div>
+    <div class="absolute">ABSOLUTE2</div>
+  </div>
+
+
+
+
+
+</body>
+</html>

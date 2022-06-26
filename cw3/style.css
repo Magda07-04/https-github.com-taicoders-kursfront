@@ -1,5 +1,12 @@
+*{ box-sizing: border-box; }
 body{
   background-color: hsl(30, 38%, 92%);
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  min-height:100vh;
+  margin:0;
+  padding:1rem;
 }
 
 main{
@@ -76,10 +83,33 @@ button{
   /* przestrzeń pomiędzy dziećmi
   flexa */
   gap:.8rem;
+  cursor:pointer;
 }
+
+button:active{
+  background-color: hsl(156, 42%, 18%);
+}
+
 .attribution{
   position: fixed;
   bottom:0;
   right:0;
   font-size:.7em;
+}
+
+
+/* DESKTOP */
+@media (min-width: 768px) {
+  main{
+    display:flex;
+  }
+  header img{
+    height:450px;
+    width:300px;
+    border-radius:1rem 0 0 1rem;
+  }
+  main > section{
+    padding:2rem;
+    width:300px;
+  }  
 }

@@ -12,3 +12,5 @@
   3. W "source" zmień "none" na "master", a następnie kliknij save
   4. Twoja strona znajduje się pod adresem: 
   ```https://USERNAME.github.io/NAZWA_REPO/NAZWA_FOLDERU```
+  np:  
+  https://apietryga.github.io/advanced/cw1

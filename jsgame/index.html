@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS GAME</title>
+  <style>
+    *{
+      box-sizing: border-box;
+    }
+    body{
+      border:2px dashed red;
+      margin:0;
+      height:100vh;
+      display:flex;
+      justify-content: center;
+      align-items: center;
+    }
+    canvas{
+      border:2px dashed blue;
+      width:80vw;
+    }
+  </style>
+</head>
+<body>
+  <canvas></canvas>
+  <script>
+    let player;
+    let obsts = [];
+
+    const gamePlane = {
+      canvas : document.querySelector('canvas'),
+      init(){
+        // this - obiekt wewnątrz którego jestem (gamePlane)
+        // width / height - stosunek boków canvasa
+        this.canvas.width = 400;  
+        this.canvas.height = 200;
+        this.context = this.canvas.getContext('2d');
+        player = new Component(50,50,50,150, 'player')
+        obsts.push( new Component(50, 70, 150, 150) )
+        obsts.push( new Component(50, 70, 250, 150) )
+        obsts.push( new Component(50, 70, 350, 150) )
+        
+        this.interval = setInterval(this.update, 20)
+        this.key = false 
+        // sprawdź kliknięcie przycisku
+        window.addEventListener('keydown', e => { // function(e){}
+          this.key = e.key
+        })
+        // sprawdź odkliknięcie przycisku
+        window.addEventListener('keyup', e => { // function(e){}
+          this.key = false
+        })
+
+      },
+      clear() {
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+      },
+      update(){
+        if(gamePlane.key){
+          player.speedY = -2
+        }else{
+
+          if(player.y < 150){
+            player.speedY = 2
+          }else{
+            player.speedY = 0
+          }
+        }
+        gamePlane.clear();
+        player.newPos()
+        player.update()
+        
+        for(const obst of obsts){
+          obst.newPos()
+          if(player.colission(obst)){
+            gamePlane.over()
+          }
+          obst.update()
+        }
+
+      },
+      over(){
+        clearInterval(this.interval)
+      }
+    }
+
+
+
+    // function Component(w, h, x, y, type = 'obstacle') {
+    //   this.type = type
+    //   this.w = w
+    //   this.h = h
+    //   this.x = x
+    //   this.y = y
+    //   this.speedY = 0
+    //   const ctx = gamePlane.context
+    //   ctx.fillStyle = 'red'
+    //   ctx.fillRect(x,y,w,h)
+
+    //   this.update = () => {
+    //     ctx.fillRect(this.x,this.y,this.w,this.h)
+    //   }
+
+    //   this.newPos = () => { 
+    //     this.y += this.speedY;
+    //     if(this.type == 'obstacle'){
+    //       this.x--
+    //       if(this.x < -this.w){
+    //         this.x = gamePlane.canvas.width
+    //       }
+    //     }
+    //   }
+
+    //   this.colission = (otherobj) => {
+    //     const myleft = this.x;
+    //     const myright = this.x + (this.w);
+    //     const mytop = this.y;
+    //     const mybottom = this.y + (this.h);
+    //     const otherleft = otherobj.x;
+    //     const otherright = otherobj.x + (otherobj.w);
+    //     const othertop = otherobj.y;
+    //     const otherbottom = otherobj.y + (otherobj.h);
+    //     let crash = true;
+    //     if ((mybottom < othertop) ||
+    //       (mytop > otherbottom) ||
+    //       (myright < otherleft) ||
+    //       (myleft > otherright)) {
+    //       crash = false;
+    //     }
+    //     return crash;
+    //   }
+
+    // }
+
+    class Component {
+      constructor(w, h, x, y, type = 'obstacle'){
+        this.type = type
+        this.w = w
+        this.h = h
+        this.x = x
+        this.y = y
+        this.speedY = 0
+        this.ctx = gamePlane.context
+        this.ctx.fillStyle = 'red'
+        this.ctx.fillRect(x,y,w,h)
+      }
+
+      update(){
+        this.ctx.fillRect(this.x,this.y,this.w,this.h)
+      }
+
+      newPos(){ 
+        this.y += this.speedY;
+        if(this.type == 'obstacle'){
+          this.x--
+          if(this.x < -this.w){
+            this.x = gamePlane.canvas.width
+          }
+        }
+      }
+
+      colission(otherobj) {
+        const myleft = this.x;
+        const myright = this.x + (this.w);
+        const mytop = this.y;
+        const mybottom = this.y + (this.h);
+        const otherleft = otherobj.x;
+        const otherright = otherobj.x + (otherobj.w);
+        const othertop = otherobj.y;
+        const otherbottom = otherobj.y + (otherobj.h);
+        let crash = true;
+        if ((mybottom < othertop) ||
+          (mytop > otherbottom) ||
+          (myright < otherleft) ||
+          (myleft > otherright)) {
+          crash = false;
+        }
+        return crash;
+      }
+
+    }
+
+    gamePlane.init();
+    
+  </script>
+</body>
+</html>

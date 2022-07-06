@@ -1,8 +1,15 @@
 <template>
+  <!-- v-if - warunek, jeśli prawdziwy, to wykona to co pomiędzy tagami ( loading ) -->
+  <!-- Object.keys zwraca tablicę z kluczami obiektu np Object.keys({ name : "John" }) => ['name']  -->
+  <!-- .lenght zwraca długość tablicy, gdzie 0 to pusta tablica -->
   <div v-if="Object.keys(values).length == 0" class="loading">loading...</div>
+  <!-- v-else - kod w środku wykona się jeśli powyższy warunek jest fałszywy -->
   <div v-else class="cityDetail">
     <header>
+      <!-- pobieramy dane z values -->
       <h2>{{ values.name }}</h2>
+      <!-- jeśli chcesz połączyć string z zmienną js użyj + oraz " " -->
+      <!-- dwukropek przed atrybutem zmienia jego wartość na javascriptową -->
       <img
         :src="'https://countryflagsapi.com/svg/' + values.country"
         alt="COUNTRY FLAG"
@@ -12,12 +19,14 @@
       <div class="sunrise">
         <span> Wschód słońca </span>
         <span>
+          <!-- wykorzystujemy funckję napisaną w METHODS -->
           {{ unixToDateTime(values.sunrise) }}
         </span>
       </div>
       <div class="sunset">
         <span>Zachód słońca</span>
         <span>
+          <!-- wykorzystujemy funckję napisaną w METHODS -->
           {{ unixToDateTime(values.sunset) }}
         </span>
       </div>
@@ -26,11 +35,16 @@
 </template>
 
 <script>
+// ten komponent eksportuje ten object:
 export default {
+  // properties - właściwości ( które dostajemy od rodzica )
   props: {
+    // "cityValues" przekazany od rodzica
     values: Object,
   },
+  // przechowuje wszystkie wykorzystywane w komponencie funcje
   methods: {
+    // funckja zmieniająca unixową datę na "ludzką" H:i:s
     unixToDateTime(unix_timestamp) {
       const date = new Date(unix_timestamp * 1000);
       const hours = date.getHours();
@@ -67,11 +81,11 @@ export default {
   .suntime {
     display: flex;
     justify-content: space-between;
-    padding: .4rem 1rem 1rem 1rem;
+    padding: 0.4rem 1rem 1rem 1rem;
     .sunset,
-    .sunrise{
-      display:flex;
-      flex-direction:column;
+    .sunrise {
+      display: flex;
+      flex-direction: column;
     }
   }
 }

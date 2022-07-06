@@ -1,5 +1,7 @@
 <template>
   <div class="single">
+    <!-- pobieramy info z obiektu values -->
+    <!-- {{ values }} -->
     <h3>{{values.dt_txt}}</h3>
     <div class="temp">
       <ul>
@@ -8,14 +10,19 @@
         <li>max: {{values.main.temp_max}} &deg; C</li>
         <li>ciśnienie : {{ values.main.pressure }} hPa</li>
       </ul>
+      <!-- jeśli chcesz połączyć string z zmienną js użyj + oraz " " -->
+      <!-- dwukropek przed atrybutem zmienia jego wartość na javascriptową -->
       <img :src="'http://openweathermap.org/img/wn/'+values.weather[0].icon+'@2x.png'" alt="Weather img">
     </div>
 
   </div>
 </template>
 <script>
+// ten komponent eksportuje ten object:
 export default {
+  // properties - właściwości ( które dostajemy od rodzica )
   props: {
+    // "single" przekazany od rodzica
     values: Object,
   },
 };

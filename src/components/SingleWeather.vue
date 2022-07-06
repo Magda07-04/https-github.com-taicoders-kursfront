@@ -23,6 +23,34 @@ export default {
 
 <style lang="scss">
 .single {
-  border: 2px dashed red;
+  
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  margin:1rem;
+  border-radius:1rem;
+  h3{
+    border-radius:1rem 1rem 0 0;
+    padding:.25rem;
+    color:#fff;
+    background-color:#213547;
+    margin:0;
+  }
+  .temp{
+    padding:.5rem 0 0 1rem;
+    display:flex;
+    justify-content:space-between;
+    ul{
+      padding:0;
+      margin:0;
+      list-style:none;
+      li{
+        text-align:left;
+      }
+    }
+    img{
+      aspect-radio:1/1;
+    }
+  }
 }
 </style>

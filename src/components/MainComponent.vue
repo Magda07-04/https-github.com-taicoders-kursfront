@@ -1,12 +1,18 @@
 <template>
-  <h1>WeatherApp</h1>
-  <input type="text" placeholder="Wpisz lokalizację" v-model="localeInfo" />
-  <button @click="getLatLon">szukaj</button>
-  <CityDetails :values="cityValues" />
+  <header>
+    <h1>WeatherApp</h1>
+    <div class="form">
+      <input type="text" placeholder="Wpisz lokalizację" v-model="localeInfo" />
+      <button @click="getLatLon">szukaj</button>
+    </div>
+  </header>
 
-  <div class="weatherDays">
-    <SingleWeather v-for="single of weatherList" :values="single" />
-  </div>
+  <main>
+    <CityDetails :values="cityValues" />
+    <div class="weatherDays" v-if="weatherList.length > 0">
+      <SingleWeather v-for="single of weatherList" :values="single" />
+    </div>  
+  </main>
 </template>
 
 <script>
@@ -31,6 +37,7 @@ export default {
   methods: {
     getLatLon() {
       this.cityValues = {};
+      this.weatherList = [];
       fetch(
         'https://api.openweathermap.org/geo/1.0/direct?q=' +
           this.localeInfo +
@@ -65,9 +72,39 @@ export default {
 };
 </script>
 
-<style>
-h1 {
-  color: red;
-  margin: 0;
+<style lang="scss">
+*{box-sizing:border-box;}
+#app{
+  margin:0;
+  padding:0;
+  width:100%;
+  > header{
+    margin: 0 1rem;
+    width:calc(100% - 2rem);
+    border-radius:0 0 1rem 1rem;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-wrap:wrap;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+      rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+      padding:1rem;
+      gap:1rem;
+    h1 {
+      color: red;
+      margin: 0;
+    }
+  }
+  main{
+    padding:1rem 2rem;
+    .weatherDays{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+  }
+
 }
+
 </style>

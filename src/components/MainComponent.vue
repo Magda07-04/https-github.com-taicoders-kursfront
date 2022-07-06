@@ -7,7 +7,6 @@
   <div class="weatherDays">
     <SingleWeather v-for="single of weatherList" :values="single" />
   </div>
-
 </template>
 
 <script>
@@ -16,13 +15,13 @@ import SingleWeather from './SingleWeather.vue';
 export default {
   components: {
     CityDetails,
-    SingleWeather
+    SingleWeather,
   },
 
   // "domyślne" dane - te ładowane na początku
   data() {
     return {
-      localeInfo: 'Chicago', // domyślna lokalizacja
+      localeInfo: 'Katowice', // domyślna lokalizacja
       cityValues: {},
       weatherList: [],
     };
@@ -48,7 +47,7 @@ export default {
           lat +
           '&lon=' +
           lon +
-          '&appid=04d03c358e8933ac6823da54c340c97b'
+          '&appid=04d03c358e8933ac6823da54c340c97b&units=metric'
       )
         .then((dt) => dt.json())
         .then((dt) => {
@@ -61,7 +60,6 @@ export default {
 
   // mouted - funkcja wywołująca się po "zamontowaniu komponentu"
   mounted() {
-    // console.log('hello');
     this.getLatLon();
   },
 };

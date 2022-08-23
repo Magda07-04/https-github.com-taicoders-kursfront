@@ -4,6 +4,7 @@ Plik readme.md prezentuje zawartość folderu w którym się znajduje.
 ## Pobierz
   1. [GIT](https://git-scm.com/download/win) 
   2. [VSC](https://code.visualstudio.com/download)
+  * jeśli nie masz konta w systemie github zarejestruj się [tutaj](https://github.com/apietryga/kurs)
 
 ## STWÓRZ REPOZYTORIUM
   1. Stwórz folder ( kursfront )

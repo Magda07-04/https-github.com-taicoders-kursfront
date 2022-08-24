@@ -1,6 +1,6 @@
 # KURS FRONT README
 Plik readme.md prezentuje zawartość folderu w którym się znajduje. 
-[PREZENTACJE](https://drive.google.com/drive/folders/1qBUdKe0QASz3GuSAan0FWeaM7__1p1rr?usp=sharing)
+- [PREZENTACJE](https://drive.google.com/drive/folders/1qBUdKe0QASz3GuSAan0FWeaM7__1p1rr?usp=sharing)
 
 
 ## Pobierz

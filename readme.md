@@ -2,6 +2,7 @@
 Plik readme.md prezentuje zawartość folderu w którym się znajduje. 
 - [PREZENTACJE](https://drive.google.com/drive/folders/1qBUdKe0QASz3GuSAan0FWeaM7__1p1rr?usp=sharing)
 - [GITHUB](https://github.com/apietryga/kurs)
+- [LIVE_EXAMPLE](https://apietryga.github.io/kurs/portfolio)
 
 ## Pobierz
   1. [GIT](https://git-scm.com/download/win) 
@@ -13,3 +14,8 @@ Plik readme.md prezentuje zawartość folderu w którym się znajduje.
   2. Stwórz plik readme.md ( w folderze )
   3. Kliknij na kontrola źródła (3 zakładka od góry) i "Publish to github", następnie wybierz opcję "Publish to Github public repository" i potwierdź "OK"
 
+## UDOSTĘPNIJ REPOZYTORIUM JAKO STRONĘ WWW
+1. Wejdź na swoje repo (https://github.com/USERNAME/REPONAME)
+2. Wjdz na Settings (Ustawienia) -> Pages
+3. W zakładce Build and deployment -> Branch zmień "None" na "master" i kliknij "Save"
+4. Twoja strona po chwili pojawi się pod adresem https://USERNAME.github.io/REPONAME/FOLDERNAME

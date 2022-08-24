@@ -1,7 +1,7 @@
 # KURS FRONT README
 Plik readme.md prezentuje zawartość folderu w którym się znajduje. 
 - [PREZENTACJE](https://drive.google.com/drive/folders/1qBUdKe0QASz3GuSAan0FWeaM7__1p1rr?usp=sharing)
-
+- [GITHUB](https://github.com/apietryga/kurs)
 
 ## Pobierz
   1. [GIT](https://git-scm.com/download/win) 

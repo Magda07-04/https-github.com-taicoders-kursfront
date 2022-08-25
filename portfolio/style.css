@@ -1,3 +1,28 @@
 body { 
   background-color: rgba(46, 139, 86, 0.997);
+  margin:0;
+}
+
+.bodyHeader{
+  border: 5px dashed red;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1{
+  /* jeśli podajemy 2 wartości : poz y, poz x */
+  margin:6px 10px;
+}
+
+ul{
+  border:5px dashed yellow;
+  list-style-type: none;
+  margin:0;
+  padding:0;
+  display:flex;
+}
+
+li{
+  border:5px dashed blue;
 }

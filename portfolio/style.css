@@ -1,6 +1,7 @@
 body { 
   background-color: rgba(46, 139, 86, 0.997);
   margin:0;
+  min-height: 1000px;
 }
 
 .bodyHeader{
@@ -8,6 +9,8 @@ body {
   display:flex;
   justify-content: space-between;
   align-items: center;
+  position:sticky;
+  top:0;
 }
 
 h1{
@@ -25,4 +28,29 @@ ul{
 
 li{
   border:5px dashed blue;
+  top:0;
+  left:0;
+}
+/* warunek, wyłapujący wyświetlanie na telefonie */
+@media (max-width:768px){
+  ul{
+    /* display:none; */
+    flex-direction: column;
+  }
+}
+
+form{
+  border:5px dashed red;
+  display:flex;
+  flex-direction: column;
+  padding:15px;
+  gap:5px;
+}
+
+input, textarea{
+  padding:10px;
+}
+
+img{
+  max-width: 100%;
 }

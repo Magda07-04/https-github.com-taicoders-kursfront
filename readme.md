@@ -19,3 +19,10 @@ Plik readme.md prezentuje zawartość folderu w którym się znajduje.
 2. Wjdz na Settings (Ustawienia) -> Pages
 3. W zakładce Build and deployment -> Branch zmień "None" na "master" i kliknij "Save"
 4. Twoja strona po chwili pojawi się pod adresem https://USERNAME.github.io/REPONAME/FOLDERNAME
+
+
+## POLECANE LINKI
+ - [ĆWICZENIA_Z_FLEXA](https://flexboxfroggy.com/)
+ - [DOPEŁNIENIE_KURSU](https://www.w3schools.com/)
+ - [INSPIRACJE](https://codepen.io/)
+ - [ROZWIĄZYWANIE_PROBLEMÓW](https://stackoverflow.com/)

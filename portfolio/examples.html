@@ -1,0 +1,66 @@
+<!-- BOX SIZING -->
+<style>
+    *{
+    box-sizing: border-box;
+    }
+
+  .parent{
+    border:20px solid green;
+  }
+  .child{
+    border:20px solid blue;
+    padding:10px;
+    width:100%;
+  }
+</style>
+<div class="parent">
+  <div class="child">
+    dziecko
+  </div>
+</div>
+
+<!-- VIEWPORTS -->
+<style>
+  .viewport{
+    border:5px solid red;
+    width:50vw;
+    /* height:50vh; */
+    /* width:50vh; */
+  }
+</style>
+<div class="viewport"></div>
+
+<!-- CZCIONKI -->
+  <style>
+    /* :root{
+      font-size:15px;
+    } */
+    .em{
+      font-size:2em;
+    }
+    .rem{
+      font-size:2rem;
+    }
+  </style>
+
+  <!-- EM -->
+  <div class="em">
+    DZIADEK
+    <div class="em">
+      OJCIEC
+      <div class="em">
+        SYN
+      </div>
+    </div>
+  </div>
+
+  <!-- REM -->
+  <div class="rem">
+    DZIADEK
+    <div class="rem">
+      OJCIEC
+      <div class="rem">
+        SYN
+      </div>
+    </div>
+  </div>

@@ -26,3 +26,6 @@ Plik readme.md prezentuje zawartość folderu w którym się znajduje.
  - [DOPEŁNIENIE_KURSU](https://www.w3schools.com/)
  - [INSPIRACJE](https://codepen.io/)
  - [ROZWIĄZYWANIE_PROBLEMÓW](https://stackoverflow.com/)
+
+
+#

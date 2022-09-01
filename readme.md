@@ -25,7 +25,10 @@ Plik readme.md prezentuje zawartość folderu w którym się znajduje.
  - [ĆWICZENIA_Z_FLEXA](https://flexboxfroggy.com/)
  - [DOPEŁNIENIE_KURSU](https://www.w3schools.com/)
  - [INSPIRACJE](https://codepen.io/)
- - [ROZWIĄZYWANIE_PROBLEMÓW](https://stackoverflow.com/)
+ - [ROZWIĄZYWANIE PROBLEMÓW](https://stackoverflow.com/)
+ - [CZCIONKI I IKONY](https://fonts.google.com/)
+ - [BOX SHADOW GENATOR](https://cssgenerator.pl/box-shadow-generator/)
+ - [BOX SHADOW GOTOWCE](https://getcssscan.com/css-box-shadow-examples)
 
 
-#
+

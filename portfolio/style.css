@@ -4,6 +4,7 @@
   --foreground-lighter:#cfbdff;
   --background-dark:#8F8518;
   --background-light:#DBD051;
+  --default-box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 
 }
 *{box-sizing: border-box;}
@@ -130,11 +131,14 @@ li{
 }
 
 form{
-  border:5px dashed red;
   display:flex;
   flex-direction: column;
-  padding:15px;
+  padding:1rem;
+  margin:0 1rem;
   gap:5px;
+  background: var(--foreground-lighter);
+  box-shadow: var(--default-box-shadow);
+  border-radius: .5rem;
 }
 
 input, textarea{
@@ -143,10 +147,6 @@ input, textarea{
 
 img{
   max-width: 100%;
-}
-
-form{
-  width:50%;
 }
 
 .wrapper{
@@ -164,7 +164,7 @@ form{
 }
 .wrapper p {
   margin:0;
-  margin-bottom:1rem;
+  margin-bottom:2rem;
   line-height: 1.2rem;
 }
 
@@ -176,7 +176,7 @@ form{
 
 table{
   /* box shadow ze strony https://getcssscan.com/css-box-shadow-examples*/
-  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  box-shadow: var(--default-box-shadow);
   /* max szerokość strony */
   width:100%;
   /* usuwamy granice pomiędzy wierszami i kolumnami */
@@ -199,4 +199,24 @@ tr{
 /* even|odd - co drugie dziecko */
 tr:nth-child( even ){
   background: var(--foreground-lighter);
+}
+
+footer{
+  /* border:2px dashed red; */
+  margin-top:3rem;
+  background-color: #000;
+  color:rgb(255, 255, 255);
+  font-size:.8rem;
+  display:flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding:1rem;
+}
+footer ol{
+  list-style: none;
+  margin:0;
+  padding:0;
+}
+footer p {
+  margin:0;
 }

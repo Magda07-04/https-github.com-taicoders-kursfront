@@ -1,6 +1,7 @@
 :root{
   --foreground-dark:#34128F;
   --foreground-light:#9C78FF;
+  --foreground-lighter:#cfbdff;
   --background-dark:#8F8518;
   --background-light:#DBD051;
 
@@ -29,7 +30,9 @@ a{
   display:flex;
   justify-content: space-between;
   align-items: center;
-  position:sticky;
+  /* position:sticky; */
+  position: fixed;
+  width:100%;
   top:0;
   box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
@@ -147,12 +150,53 @@ form{
 }
 
 .wrapper{
-  /* border:5px dashed pink; */
   display:flex;
   flex-direction: column;
   align-items: center;
+  padding: 3.5rem .5rem 0 .5rem;
 }
 .wrapper header{
   width:100%;
 }
 
+.wrapper h2 {
+  margin:0;
+}
+.wrapper p {
+  margin:0;
+  margin-bottom:1rem;
+  line-height: 1.2rem;
+}
+
+/* div na któym osadzamy tabelkę */
+.tableWrapper{
+  /* dajemy padding tylko z prawej i lewej strony */
+  padding: 0 1rem;
+}
+
+table{
+  /* box shadow ze strony https://getcssscan.com/css-box-shadow-examples*/
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  /* max szerokość strony */
+  width:100%;
+  /* usuwamy granice pomiędzy wierszami i kolumnami */
+  border-collapse: collapse;
+}
+
+th{
+  /* ustawiamy kolor ze zmiennych */
+  background-color: var(--foreground-dark);
+  padding:.5rem;
+}
+
+td{
+  padding:.3rem;
+}
+
+tr{
+  background: var(--foreground-light);
+}
+/* even|odd - co drugie dziecko */
+tr:nth-child( even ){
+  background: var(--foreground-lighter);
+}

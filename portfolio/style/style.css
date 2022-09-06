@@ -90,17 +90,17 @@ body .bodyHeader nav label div:nth-child(3) {
   top: calc(78% - 1px);
 }
 body .bodyHeader nav ul {
+  position: fixed;
+  flex-direction: column;
   background-color: var(--background-light);
   list-style-type: none;
   margin: 0;
   padding: 0.5rem;
   display: flex;
-  position: fixed;
   right: -100%;
   top: 2.1rem;
   height: calc(100% - 2.1rem);
   transition: 0.5s;
-  flex-direction: column;
 }
 body .bodyHeader nav ul li {
   top: 0;
@@ -193,12 +193,10 @@ body footer p {
 /* warunek, wyłapujący wyświetlanie na komputerze */
 @media (min-width: 768px) {
   ul {
-    flex-direction: row;
-    position: static;
-    background-color: transparent;
+    flex-direction: row !important;
+    position: static !important;
   }
   label {
-    display: none;
     display: none;
   }
 }

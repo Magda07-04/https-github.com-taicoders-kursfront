@@ -18,8 +18,7 @@ Plik readme.md prezentuje zawartość folderu w którym się znajduje.
 1. Wejdź na swoje repo (https://github.com/USERNAME/REPONAME)
 2. Wjdz na Settings (Ustawienia) -> Pages
 3. W zakładce Build and deployment -> Branch zmień "None" na "master" i kliknij "Save"
-4. Twoja strona po chwili pojawi się pod adresem https://USERNAME.github.io/REPONAME/FOLDERNAME
-
+4. Twoja strona po chwili pojawi się pod adresem https://USERNAME.github.io/REPONAME/FOLDERNAME, możesz go znaleźć : Repozytorium -> Enviroments -> View deployment
 
 ## POLECANE LINKI
  - [ĆWICZENIA_Z_FLEXA](https://flexboxfroggy.com/)

@@ -28,6 +28,6 @@ Plik readme.md prezentuje zawartość folderu w którym się znajduje.
  - [CZCIONKI I IKONY](https://fonts.google.com/)
  - [BOX SHADOW GENATOR](https://cssgenerator.pl/box-shadow-generator/)
  - [BOX SHADOW GOTOWCE](https://getcssscan.com/css-box-shadow-examples)
-
+ - [DOKUMENTACJA BOOSTRAP](https://getbootstrap.com/docs/5.2/getting-started/introduction/)
 
 

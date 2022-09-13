@@ -15,6 +15,16 @@ const views = [
     "src" : "3.webp",
     "name" : "Trzeci",
     "alt" : "Beach"
+  },
+  {
+    "src" : "4.webp",
+    "name" : "Czwarty",
+    "alt" : "Beach"
+  },
+  {
+    "src" : "5.webp",
+    "name" : "Piąty",
+    "alt" : "Beach"
   }
 ]
 // funkcja pobierająca argument index i podmieniająca nazwę, src i alt w htmlu
@@ -48,6 +58,14 @@ function modifyCurrentSlide( direction ){
     currentSlide = 0;
   }
 
+  if(direction == 'left'){
+    currentSlide--;
+  }
+
+  if(currentSlide < 0){
+    currentSlide = views.length - 1 
+  }
+
   // wywołanie funkcji z argumentem index równym currentSlide
   // wyświetl zdjęcie i tekst na podstawie currentSlide
   getSingleView(currentSlide)
@@ -57,3 +75,6 @@ function modifyCurrentSlide( direction ){
 const rightArr = document.querySelector(".right")
 // po kliknięciu na strzałkę w prawo wykonaj modifyCurrentSlide z argumentem right
 rightArr.onclick = function(){ modifyCurrentSlide('right') }
+
+const leftArr = document.querySelector(".left")
+leftArr.onclick = function(){ modifyCurrentSlide('left') }

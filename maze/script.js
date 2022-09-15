@@ -73,7 +73,6 @@ const game = {
   init(){
     // przypisz do pola start możliwość kliknięcia i rozpoczęcia gry
     game.buttons.start.onclick = function () { game.start() }
-
   },
   start(){ // start gry
     // zablokuj możliwość rozpoczęcia nowej gry
@@ -105,9 +104,9 @@ const game = {
   over(result){
     // wyświetl odpowiedni komunikat
     if(result){
-      console.log("YOU WIN")
+      modal.show('WYGRANA!')
     }else{
-      console.log("YOU LOSE")
+      modal.show('PRZEGRANA!')
     }
     // zdejmij słuchacza z pola meta (przestajemy nasłuchiwać kursor 
     // na polu meta)
@@ -124,42 +123,47 @@ const game = {
 }
 // przygotuj grę
 // ta metoda wywołuje się po każdym odświeżeniu strony
-game.init()
 
 
 // KOMUNIKATY 
 const modal = {
   dom : document.createElement("div"),
+  h1 : document.createElement("h1"),
   init(){
     modal.dom.style.cssText = `
-      border:10px dashed red;
+      border:10px solid green;
       position:fixed;
       width:80vw;
       height:80vh;
       left:10vw;
       top:10vh;
-      background:red;
+      background:#aa6969;
       display:flex;
       flex-direction:column;
       align-items:center;
       justify-content:center;
+      display:none;
+      text-align:center;
+      border-radius:10px;
     `
-      // display:none;
     document.body.append(modal.dom)
 
-    const h1 = document.createElement("h1")
-    h1.innerHTML = "H1"
-    modal.dom.append(h1)
+    modal.h1.innerHTML = "H1"
+    modal.dom.append(modal.h1)
 
     const button = document.createElement("button")
     button.innerHTML = "OK"
+    button.style.cssText = ` 
+      padding:1rem 4rem;
+      border-radius:1rem;
+      cursor:pointer;
+    `
     button.onclick = function () { modal.hide() }
     modal.dom.append(button)
-
-
   },
-  show() { 
+  show(text) { 
     modal.dom.style.display = "flex";
+    modal.h1.innerHTML = text
   },
   hide(){
     modal.dom.style.display = "none";
@@ -167,5 +171,9 @@ const modal = {
 
 }
 
+
 modal.init()
-// modal.show()
+modal.show('KLIKNIJ NA NIEBIESKI KAFELEK, ABY ROZPOCZĄĆ GRĘ <br/> PRZESUŃ KURSOR NA POMARAŃCZOWY, ABY WYGRAĆ')
+
+
+game.init()

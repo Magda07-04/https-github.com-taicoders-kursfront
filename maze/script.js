@@ -79,11 +79,16 @@ const game = {
     // zablokuj możliwość rozpoczęcia nowej gry
     game.buttons.start.onclick = ""
     // "nasłuchuj" kursora na polu meta (jeśli się tam pojawi, wywoła 
-    // metodę game.metaTrigger)
-    game.buttons.meta.addEventListener('mousemove', game.metaTrigger)
+    // zakończenie gry z pozytywnym wynikiem
+    game.buttons.meta.addEventListener('mousemove', game.over)
 
+    // jeśli nakierujesz myszkę na gamePlane po starcie, to przegrywasz grę
+    // gamePlane.addEventListener('mousemove', game.gamePlaneListener)
     gamePlane.addEventListener('mousemove', game.gamePlaneListener)
+    // wyciągamy jako wall każdą ścianę osobno
     for(const wall of game.buttons.walls){
+      // jeśli Twój kursor jest na klasie .wall, to nie wyzwalaj
+      // żadnych innych słuchaczy (eventListenerów)
       wall.addEventListener('mousemove', game.wallListener)
     }
 
@@ -94,11 +99,6 @@ const game = {
   },
   gamePlaneListener(e){
     game.over(false)
-  },
-  // metoda wywołująca się po nakierowaniu myszką na metę
-  metaTrigger(){
-    // zakończ grę z pozytywnym wynikiem
-    game.over(true)
   },
   // zakończ grę - wynik zależy od result - może być true - wygrana,
   // lub false - przegrana
@@ -111,7 +111,7 @@ const game = {
     }
     // zdejmij słuchacza z pola meta (przestajemy nasłuchiwać kursor 
     // na polu meta)
-    game.buttons.meta.removeEventListener('mousemove', game.metaTrigger)
+    game.buttons.meta.removeEventListener('mousemove', game.over)
 
     gamePlane.removeEventListener('mousemove', game.gamePlaneListener)
     for(const wall of game.buttons.walls){
@@ -125,10 +125,6 @@ const game = {
 // przygotuj grę
 // ta metoda wywołuje się po każdym odświeżeniu strony
 game.init()
-
-
-
-
 
 
 // KOMUNIKATY 

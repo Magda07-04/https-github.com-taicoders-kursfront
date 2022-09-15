@@ -105,9 +105,11 @@ const game = {
   over(result){
     // wyświetl odpowiedni komunikat
     if(result){
-      modal.show('WYGRANA!')
+      modal.show('WYGRANA!', 'green')
+      document.body.style.backgroundColor = "green"
     }else{
-      modal.show('PRZEGRANA!')
+      modal.show('PRZEGRANA!', 'red')
+      document.body.style.backgroundColor = "red"
     }
     // zdejmij słuchacza z pola meta (przestajemy nasłuchiwać kursor 
     // na polu meta)
@@ -162,12 +164,14 @@ const modal = {
     button.onclick = function () { modal.hide() }
     modal.dom.append(button)
   },
-  show(text) { 
+  show(text, color = '#aa6969') { 
+    modal.dom.style.backgroundColor = color
     modal.dom.style.display = "flex";
     modal.h1.innerHTML = text
   },
   hide(){
     modal.dom.style.display = "none";
+    document.body.style.backgroundColor = "#fff"
   }
 
 }

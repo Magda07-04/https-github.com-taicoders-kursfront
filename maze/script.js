@@ -42,14 +42,14 @@ function makeWall(x, y, w, h, type = 'wall') {
 // tablica map przechowująca tablice zawierające informacje o ścianie
 // (każdy pojedyńczy element tablicy map to jedna ściana)
 const map = [
-  [0,0,20,20, 'start'],
-  [10,20,20,10],
-  [20,30,20,10],
-  [30,40,20,10],
-  [40,50,20,10],
-  [50,60,20,10],
-  [60,70,30,10],
-  [80,80,20,20, 'meta']
+  [0,0,20,21, 'start'],
+  [10,20,20,11],
+  [20,30,20,11],
+  [30,40,20,11],
+  [40,50,20,11],
+  [50,60,20,11],
+  [60,70,30,11],
+  [80,80,20,21, 'meta']
 ]
 
 // pętla, pobierająca elementy tablicy map jako wall

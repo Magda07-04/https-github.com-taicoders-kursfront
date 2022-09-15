@@ -42,8 +42,8 @@ function makeWall(x, y, w, h, type = 'wall') {
 // tablica map przechowująca tablice zawierające informacje o ścianie
 // (każdy pojedyńczy element tablicy map to jedna ściana)
 const map = [
+  [80, 0, 20, 20, 'time'],
   [0,0,20,21, 'start'],
-  
   [10,20,20,11],
   [20,30,20,11],
   [30,40,20,11],
@@ -65,7 +65,9 @@ for(const wall of map){
 // mechanika gry
 const game = {
   // definiujemy wszystkie aktywne elementy gry
+  maxTime : 5,
   buttons: {
+    time: document.querySelector('.time'),
     start: document.querySelector('.start'),
     meta: document.querySelector('.meta'),
     walls: document.querySelectorAll('.wall'),
@@ -74,6 +76,8 @@ const game = {
   init(){
     // przypisz do pola start możliwość kliknięcia i rozpoczęcia gry
     game.buttons.start.onclick = function () { game.start() }
+    game.time = game.maxTime
+    game.buttons.time.innerHTML = game.time
   },
   start(){ // start gry
     // zablokuj możliwość rozpoczęcia nowej gry
@@ -91,6 +95,12 @@ const game = {
       // żadnych innych słuchaczy (eventListenerów)
       wall.addEventListener('mousemove', game.wallListener)
     }
+
+    game.interval = setInterval(function(){
+      game.time--
+      if(game.time < 0) { game.over(false) }
+      game.buttons.time.innerHTML = game.time
+    }, 1000)
 
     console.log("GAME STARTED")
   },
@@ -119,6 +129,8 @@ const game = {
     for(const wall of game.buttons.walls){
       wall.removeEventListener('mousemove', game.wallListener)
     }
+
+    clearInterval(game.interval)
 
     // przygotuj nową grę
     game.init()
@@ -178,7 +190,7 @@ const modal = {
 
 
 modal.init()
-modal.show('KLIKNIJ NA NIEBIESKI KAFELEK, ABY ROZPOCZĄĆ GRĘ <br/> PRZESUŃ KURSOR NA POMARAŃCZOWY, ABY WYGRAĆ')
+// modal.show('KLIKNIJ NA NIEBIESKI KAFELEK, ABY ROZPOCZĄĆ GRĘ <br/> PRZESUŃ KURSOR NA POMARAŃCZOWY, ABY WYGRAĆ')
 
 
 game.init()

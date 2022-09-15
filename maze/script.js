@@ -43,6 +43,7 @@ function makeWall(x, y, w, h, type = 'wall') {
 // (każdy pojedyńczy element tablicy map to jedna ściana)
 const map = [
   [0,0,20,21, 'start'],
+  
   [10,20,20,11],
   [20,30,20,11],
   [30,40,20,11],

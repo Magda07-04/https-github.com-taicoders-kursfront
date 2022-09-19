@@ -1,0 +1,122 @@
+$navButtonSize: 2rem;
+
+*{box-sizing:border-box;}
+
+body{
+  font-family: 'Lemon/Milk', sans-serif;
+  // font-family: 'Lemon/Milk light', sans-serif;
+  background-color: #FDF6EB;
+  margin:0;
+  nav{
+    display:flex;
+    justify-content:space-between;
+    background-color: #FDF6EB;
+    padding: 2rem 2rem .5rem 2rem;
+    border-bottom:2px solid #000;
+    position:relative;
+    .logoWrapper{
+      display:flex;
+      align-items: center;
+      z-index:2;
+      img{
+        width: $navButtonSize;
+        height: $navButtonSize;
+        margin: .7rem;
+      }
+      h1{
+        font-size: 1.2rem;
+      }
+      &:before{
+        content:"";
+        position:absolute;
+        width:100%;
+        height:100%;
+        left:0;
+        top:0;
+        z-index:-1;
+        box-sizing: border-box;
+        background-color: #FDF6EB;
+
+      }
+    }
+    .burgerWrapper{
+      display:flex;
+      position:relative;
+      align-items: center;
+      border:2px solid blue;
+
+      label{
+        z-index:2;
+        margin-right:.7rem;
+        right:0;
+        width: $navButtonSize;
+        height: $navButtonSize;
+        position:absolute;
+        cursor:pointer;
+        // label > div - bezpośrednie dzieci divy od labela 
+        // ( nie obejmuje wnuków labela ) 
+        // border:3px solid red;
+        > div{
+          $barHeight:6px;
+          height:$barHeight;
+          background-color: #000;
+          position:absolute;
+          width:100%;
+          // & - odnosi się do tego selektora
+          // wewnątrz którego się znajduje
+          &:nth-child(2){
+            // przesuń diva na środek labela
+            margin-top: calc($navButtonSize/2);
+            // przesuń środek diva na środek labela
+            top: calc( -#{$barHeight} / 2 )
+            // top: calc( $barHeight / 2 - $barHeight);
+            // oneliner:
+            // top: calc($navButtonSize / 2 - $barHeight / 2);
+          }
+          &:nth-child(3){
+            bottom:0;
+            display:flex;
+            background-color: transparent;
+            justify-content:space-between;
+            div:nth-child(1){
+              background-color: #000;
+              width:60%;
+            }
+            div:nth-child(2){
+              width:20%;
+              background-color:#FF5202;
+            }
+          
+          }
+        }
+
+
+      }
+      input{
+        display:none;
+      }
+      ol{
+        z-index:1;
+        background-color: red;
+        border:2px solid red;
+        position:absolute;
+        top:-100vh;
+        transition: 1s;
+        display:flex;
+        flex-direction: column;
+        right:-2rem;
+        padding:20px 10px;
+        list-style:none;
+        width:100vw;
+      }
+
+      #toggler:checked ~ {
+        ol{
+          top:100%;
+        }
+      }
+
+    }
+  }
+
+}

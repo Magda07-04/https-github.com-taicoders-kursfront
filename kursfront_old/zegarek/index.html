@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zegarek</title>
+  <link href="http://fonts.cdnfonts.com/css/lemonmilk" rel="stylesheet">
+  <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+  <nav>
+    <div class="logoWrapper">
+      <img src="img/logo.svg" alt="Cartix page logo">
+      <h1>CARTX</h1>
+    </div>
+
+    <div class="burgerWrapper">
+      <input type="checkbox" id="toggler">
+
+      <label for="toggler">
+        <div></div>
+        <div></div>
+        <div>
+          <div></div>
+          <div></div>
+        </div>
+      </label>
+
+      <ol>
+        <li>
+          <a href="#">Home</a>
+        </li>
+
+        <li>
+          <a href="#">About Us</a>
+        </li>
+
+        <li>
+          <a href="#">Support</a>
+        </li>
+
+        <li>
+          <a href="#">Products</a>
+        </li>
+
+      </ol>
+
+    </div>
+
+    <div class="buttons">
+      <a href="#">
+        <img src="img/search.svg" alt="Search icon">
+      </a>
+      <a href="#">
+        <img src="img/heart.svg" alt="Heart icon">
+      </a>
+      <a href="#">
+        <img src="img/shop.svg" alt="Shop icon">
+      </a>
+
+    </div>
+  </nav>
+
+  <main>
+    <div class="titleWrapper">
+      <h2>
+        NEXT GEN
+        <img src="img/star.svg" alt="STAR">
+      </h2>
+      <h2>SMART WATCH</h2>
+      <p>
+        Everyone looks your watch and it represents
+        who you are values and your personal style.
+      </p>
+      <b>$550.00</b>
+      <button>
+        Shop Now
+      </button>
+    </div>
+
+    <div class="imgContainer">
+      <div class="imgWrapper">
+        <div class="img"></div>
+      </div>
+    </div>
+
+    <div class="contentContainer">
+      <div class="buttonContainer">
+        <button>Shop Now</button>
+      </div>
+      <div class="imgWrapper">
+        <div class="img"></div>
+      </div>
+      <div class="contentWrapper">
+        <p>Everyone looks at your watch and it represents who you are, your values and your personal style.</p>
+      </div>
+    </div>
+
+    <div class="trendingWrapper">
+      <div class="trending">
+        <p>
+          WHATS <br>
+          TRENDING?
+        </p>
+      </div>
+    </div>
+
+  </main>
+
+
+  <!-- <script>
+    let lock = false;
+    document.addEventListener( 'click', e => {
+      if( !lock ){
+        lock = true
+        if(!['A', 'LI', 'OL'].includes(e.target.nodeName)){
+          document.querySelector("#toggler").checked = false;
+        }
+      }
+      setTimeout(() => { lock = false; }, 100)
+    })
+  </script> -->
+
+</body>
+</html>

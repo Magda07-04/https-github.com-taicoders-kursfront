@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MEDIA</title>
+</head>
+<body>
+
+  <style>
+    .parent{
+      border:2px dashed red;
+      display:flex;
+      height:50vh;
+      flex-direction: column;
+    }
+    .child{
+      height:40vh;
+    }
+    .ch1{
+      border:2px dashed yellow;
+      flex:1;
+    }
+    .ch2{
+      border:2px dashed blue;
+      flex:1;
+    }
+
+    @media (min-width:768px){
+      .parent{
+        flex-direction: row;
+
+      }
+
+    }
+  </style>
+
+  <div class="parent">
+    <div class="child ch1"></div>
+    <div class="child ch2"></div>
+  </div>
+
+
+
+
+</body>
+</html>

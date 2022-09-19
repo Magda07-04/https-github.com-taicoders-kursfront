@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <style>
+    main * { border:2px dashed red; }
+    main{ height:250vh;}
+    .static{ position: static; }
+    .fixed{ 
+      top:0;
+      left:0;
+      position: fixed; }
+    .sticky{ position: sticky; top:0;}
+    .relative{ position: relative; }
+    .absolute{ position: absolute; 
+      top:0;
+      right:0;
+    }
+    main{
+      position:relative;
+    }
+  </style>
+  <main>
+    <div class="static">STATIC</div>
+    <div class="fixed">FIXED</div>
+    <div class="sticky">STICKY</div>
+    <div class="relative">RELATIVE</div>
+    <div class="absolute">ABSOLUTE</div>
+  </main>
+
+
+
+
+</body>
+</html>

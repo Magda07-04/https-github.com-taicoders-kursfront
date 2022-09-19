@@ -1,0 +1,23 @@
+body{
+  background-color: antiquewhite;
+}
+main{
+  display:flex;
+  align-items: center;
+}
+.content{
+  flex:1; /* pozwól wyświetlić się elementowi na pełną szerokość */
+  display:flex;
+  justify-content: center; /* wycentruj zjęcie horyzontalnie */
+}
+
+.leftArr,
+.rightArr{  padding:1rem;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: #fff;
+}
+footer{
+  text-align: right;
+  margin-top:4rem;
+}

@@ -1,0 +1,120 @@
+body{
+  background-color: aquamarine;
+  /* usuwamy domyślny margines body */
+  margin:0;
+}
+
+footer,
+.cookies{
+  border: 5px solid #000;
+  text-align: center;
+  padding:.5rem;
+}
+
+header{
+  border: 5px solid #000;
+  padding:.5rem;
+}
+
+h1{
+  /* usuwamy domyślny margines h1 */
+  margin:0;
+}
+
+footer{
+  /* "przyklej" do ekranu */
+  position:fixed;
+  bottom:0;
+  width:100%;
+  background-color: aquamarine;
+}
+
+/* selektor gwiazdki odnosi się do wszyskich 
+elementów na stronie - sosuj uważnie */
+*{
+  /* wysokość i szerokość elementów odnosi się
+  do ich wielkości + padding + border 
+    - jeśli elementy na stronie się rozjadą, często
+    box-sizing rozwiązuje problem
+  */
+  box-sizing: border-box;
+}
+
+section{
+  display:flex;
+  flex-direction: column;
+  /* użyj calc() jeśli chcesz wykonać działanie 
+  na różnych jednostkach */
+  margin-bottom:calc( 3rem + 10px );
+}
+
+article{
+  border: 5px solid #000;
+  /* ustawiamy stosunek wysokości do szerokości */
+  aspect-ratio: 1/1;
+  margin:1rem;
+  margin-bottom: 0;
+  /* cover - przykrywa obrazkiem cały element
+  - odwrotność to contain */
+  background-size: cover;
+  /* ustawia obrazek na środku */
+  background-position: center;
+  /* zmieniamy position static, aby dzieci w 
+  pozycji absolutnej dostosowały się do article */
+  position: relative;
+}
+
+@media (min-width:768px){
+
+  section{
+    flex-direction: row;
+    justify-content: center;
+    /* pozwól elementom na łamanie linii (enter) */
+    flex-wrap:wrap;
+  }
+
+  article{
+    width:35%;
+  }
+
+}
+
+/* n-te dziecko - w nawiasie wpisz index (kolejność elementu) */
+article:nth-child(1){
+  /* ustaw zdjęcie w tle */
+  background-image: url(https://files.worldwildlife.org/wwfcmsprod/images/Lion_WWFGIFTS_cover_2020/magazine_small/2wafu1bmcz_b21fc8e6.jpeg);
+}
+
+article:nth-child(2){
+  background-image: url(https://zwierzaki.pl/wp-content/uploads/2021/12/zebra-1200x675.jpg);
+}
+
+/* before / after - pseudo element - element który nie 
+ma odpowiednika w html'u, jest "pasożytem" elemenu  */
+article:after{
+  /* nieodłączna część pseudoelementów - musi być choćby pusta */
+  content: "Kliknij aby zobaczyć zwierzę";
+  background-color: rgb(0, 255, 140);
+  /* uzależnij element od najbliższego przodka 
+  niebędącego w pozycji statycznej */
+  position:absolute;
+  /* wyświetl się w wielkości rodzica */
+  width:100%;
+  height:100%;
+  /* w lewym górnym rogu */
+  left:0;
+  top:0;
+  /* wycentruj text */
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  /* dodaj płynność przejścia elementu */
+  transition:.5s;
+}
+
+/* po kliknięciu na element (active) */
+article:active:after{
+  /* zmień widoczność na 0 ( skala od 0 - 1 gdzie
+  1 - całkowicie) */
+  opacity:0;
+}

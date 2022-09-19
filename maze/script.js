@@ -62,6 +62,10 @@ for(const wall of map){
   makeWall(...wall)
 }
 
+// detect mobile or desktop
+let isMobile = true
+// let isMobile = false
+
 // mechanika gry
 const game = {
   // definiujemy wszystkie aktywne elementy gry
@@ -75,25 +79,43 @@ const game = {
   // metoda przygotowująca grę
   init(){
     // przypisz do pola start możliwość kliknięcia i rozpoczęcia gry
-    game.buttons.start.onclick = function () { game.start() }
+
+    // if(isMobile){ 'touchstart' } else { 'click' }
+    // isMobile ? 'touchstart' : 'click'
+    game.buttons.start.addEventListener(isMobile ? 'touchstart' : 'click', game.start)
+    game.buttons.start.addEventListener('touchmove', game.test)
+    // game.buttons.start.addEventListener('touchstart', game.start)
+    // game.buttons.start.addEventListener('click', game.start )
+    // game.buttons.start.onclick = function () { game.start() }
+
+
     game.time = game.maxTime
     game.buttons.time.innerHTML = game.time
   },
-  start(){ // start gry
+  test(e){
+    console.log(e)
+  },
+  start(e){ // start gry
+    console.log('start', e)
     // zablokuj możliwość rozpoczęcia nowej gry
-    game.buttons.start.onclick = ""
+    // game.buttons.start.onclick = ""
+    game.buttons.start.removeEventListener(isMobile ? 'touchstart' : 'click', game.start)
+    
     // "nasłuchuj" kursora na polu meta (jeśli się tam pojawi, wywoła 
     // zakończenie gry z pozytywnym wynikiem
-    game.buttons.meta.addEventListener('mousemove', game.over)
+    // game.buttons.meta.addEventListener('mousemove', game.over)
+    game.buttons.meta.addEventListener(isMobile ? 'touchmove' : 'mousemove', game.over)
 
     // jeśli nakierujesz myszkę na gamePlane po starcie, to przegrywasz grę
     // gamePlane.addEventListener('mousemove', game.gamePlaneListener)
-    gamePlane.addEventListener('mousemove', game.gamePlaneListener)
+    // gamePlane.addEventListener('mousemove', game.gamePlaneListener)
+    gamePlane.addEventListener(isMobile ? 'touchmove' : 'mousemove', game.gamePlaneListener)
     // wyciągamy jako wall każdą ścianę osobno
     for(const wall of game.buttons.walls){
       // jeśli Twój kursor jest na klasie .wall, to nie wyzwalaj
       // żadnych innych słuchaczy (eventListenerów)
-      wall.addEventListener('mousemove', game.wallListener)
+      // wall.addEventListener('mousemove', game.wallListener)
+      wall.addEventListener(isMobile ? 'touchmove' : 'mousemove', game.wallListener)
     }
 
     game.interval = setInterval(function(){
@@ -102,12 +124,12 @@ const game = {
       game.buttons.time.innerHTML = game.time
     }, 1000)
 
-    console.log("GAME STARTED")
   },
   wallListener(e){
     e.stopPropagation();
   },
   gamePlaneListener(e){
+    console.log(e)
     game.over(false)
   },
   // zakończ grę - wynik zależy od result - może być true - wygrana,
@@ -123,11 +145,14 @@ const game = {
     }
     // zdejmij słuchacza z pola meta (przestajemy nasłuchiwać kursor 
     // na polu meta)
-    game.buttons.meta.removeEventListener('mousemove', game.over)
+    // game.buttons.meta.removeEventListener('mousemove', game.over)
+    game.buttons.meta.removeEventListener(isMobile ? 'touchmove' : 'mousemove', game.over)
 
-    gamePlane.removeEventListener('mousemove', game.gamePlaneListener)
+    // gamePlane.removeEventListener('mousemove', game.gamePlaneListener)
+    gamePlane.removeEventListener(isMobile ? 'touchmove' : 'mousemove', game.gamePlaneListener)
     for(const wall of game.buttons.walls){
-      wall.removeEventListener('mousemove', game.wallListener)
+      // wall.removeEventListener('mousemove', game.wallListener)
+      wall.removeEventListener(isMobile ? 'touchmove' : 'mousemove', game.wallListener)
     }
 
     clearInterval(game.interval)

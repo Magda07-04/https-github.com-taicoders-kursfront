@@ -64,123 +64,40 @@ for(const wall of map){
 
 // detect mobile or desktop
 let isMobile = navigator.userAgentData.mobile;
+// odśwież stonę po zmianie narzędzi developerskich z mobile na desktop
+// i odwrotnie
+window.onresize = function () { 
+  location.reload()
+}
 
 // mechanika gry
-// const game = {
-//   // definiujemy wszystkie aktywne elementy gry
-//   maxTime : 5,
-//   buttons: {
-//     time: document.querySelector('.time'),
-//     start: document.querySelector('.start'),
-//     meta: document.querySelector('.meta'),
-//     walls: document.querySelectorAll('.wall'),
-//   },
-//   // metoda przygotowująca grę
-//   init(){
-//     // przypisz do pola start możliwość kliknięcia i rozpoczęcia gry
-
-//     // if(isMobile){ 'touchstart' } else { 'click' }
-//     // isMobile ? 'touchstart' : 'click'
-//     if(!isMobile){
-//       game.buttons.start.addEventListener(isMobile ? 'touchstart' : 'click', game.start)
-//     }
-//     // game.buttons.start.addEventListener('touchmove', game.test)
-//     // gamePlane.addEventListener('touchmove', game.test)
-//     gamePlane.addEventListener('touchmove', game.test)
-//     // game.buttons.start.addEventListener('touchstart', game.start)
-//     // game.buttons.start.addEventListener('click', game.start )
-//     // game.buttons.start.onclick = function () { game.start() }
-
-
-//     game.time = game.maxTime
-//     game.buttons.time.innerHTML = game.time
-//   },
-//   test(e){
-//     let x = document.elementFromPoint(e.touches[0].clientX, e.touches[0].clientY).classList;
-//     x = x[x.length-1]
-//     if( x == 'wall' || x == 'start' ) { return }
-//     if( x == 'meta' ) { return game.over(true) }
-//     game.over( false )
-//   },
-//   start(e){ // start gry
-//     // zablokuj możliwość rozpoczęcia nowej gry
-//     game.buttons.start.removeEventListener(isMobile ? 'touchstart' : 'click', game.start)
-//     // "nasłuchuj" kursora na polu meta (jeśli się tam pojawi, wywoła 
-//     // zakończenie gry z pozytywnym wynikiem
-//     // game.buttons.meta.addEventListener('mousemove', game.over)
-//     game.buttons.meta.addEventListener(isMobile ? 'touchmove' : 'mousemove', game.over)
-
-//     // jeśli nakierujesz myszkę na gamePlane po starcie, to przegrywasz grę
-//     // gamePlane.addEventListener('mousemove', game.gamePlaneListener)
-//     // gamePlane.addEventListener('mousemove', game.gamePlaneListener)
-//     gamePlane.addEventListener(isMobile ? 'touchmove' : 'mousemove', game.gamePlaneListener)
-//     // wyciągamy jako wall każdą ścianę osobno
-//     for(const wall of game.buttons.walls){
-//       // jeśli Twój kursor jest na klasie .wall, to nie wyzwalaj
-//       // żadnych innych słuchaczy (eventListenerów)
-//       // wall.addEventListener('mousemove', game.wallListener)
-//       wall.addEventListener(isMobile ? 'touchmove' : 'mousemove', game.wallListener)
-//     }
-
-//     game.interval = setInterval(function(){
-//       game.time--
-//       if(game.time < 0) { game.over(false) }
-//       game.buttons.time.innerHTML = game.time
-//     }, 1000)
-
-//   },
-//   wallListener(e){
-//     e.stopPropagation();
-//   },
-//   gamePlaneListener(e){
-//     // console.log(e)
-//     game.over(false)
-//   },
-//   // zakończ grę - wynik zależy od result - może być true - wygrana,
-//   // lub false - przegrana
-//   over(result){
-//     // wyświetl odpowiedni komunikat
-//     if(result){
-//       modal.show('WYGRANA!', 'green')
-//       document.body.style.backgroundColor = "green"
-//     }else{
-//       modal.show('PRZEGRANA!', 'red')
-//       document.body.style.backgroundColor = "red"
-//     }
-//     // zdejmij słuchacza z pola meta (przestajemy nasłuchiwać kursor 
-//     // na polu meta)
-//     // game.buttons.meta.removeEventListener('mousemove', game.over)
-//     game.buttons.meta.removeEventListener(isMobile ? 'touchmove' : 'mousemove', game.over)
-
-//     game.buttons.start.removeEventListener(isMobile ? 'touchstart' : 'click', game.start)
-//     // gamePlane.removeEventListener('mousemove', game.gamePlaneListener)
-//     gamePlane.removeEventListener(isMobile ? 'touchmove' : 'mousemove', game.gamePlaneListener)
-//     for(const wall of game.buttons.walls){
-//       // wall.removeEventListener('mousemove', game.wallListener)
-//       wall.removeEventListener(isMobile ? 'touchmove' : 'mousemove', game.wallListener)
-//     }
-
-//     clearInterval(game.interval)
-
-//     // przygotuj nową grę
-//     game.init()
-//   }
-// }
-
 const game = {
   maxTime : 5,
   init(){
-    game.time = game.maxTime
-    gamePlane.querySelector('.time').innerHTML = game.time
+    // init wykonuje się przed każdą grą 
+    // przygotowuje elementy do naciśnięcia "start"
+    game.time = game.maxTime // ustaw czas na maxa
+    gamePlane.querySelector('.time').innerHTML = game.time // wypełnij kafelek z czasem "nowym czasem"
     gamePlane.querySelector('.start').addEventListener(isMobile ? 'touchstart' : 'click', game.start)
+    // TO : isMobile ? 'touchstart' : 'click'
+    // JEST TYM SAMYM CO TO 
+    // if(isMobile) { 'touchstart' }else { 'click' }
   },
   start(){
-    gamePlane.addEventListener(isMobile ? 'touchend' : 'mouseup', game.release)
+    // nie słuchaj klikania na start
     gamePlane.querySelector('.start').removeEventListener(isMobile ? 'touchstart' : 'click', game.start)
+    // sprawdź ruchy kursora (czy jeździ po mapie czy poza)
     gamePlane.addEventListener(isMobile ? 'touchmove' : 'mousemove', game.checkMove)
+    // sprawdź czy użytkownik urządzenia mobilnego nie odrywa palca od ekranu
+    // jeśli puszcza - przegrywa
+    gamePlane.addEventListener('touchend', game.release)
+
+    // zacznij odejmować co sekundę (1000 milisekund) czas od game.time
     game.interval = setInterval(function(){
       game.time--
+      // jeśli czas jest mniejszy niż 0 to przegraj grę
       if(game.time < 0) { game.over(false) }
+      // odświeżaj widok w kafelku
       gamePlane.querySelector('.time').innerHTML = game.time
     }, 1000)
   },
@@ -193,10 +110,15 @@ const game = {
       x = e.clientX
       y = e.clientY
     }
-    let aboveElement = document.elementFromPoint(x, y).classList;
-    aboveElement = aboveElement[aboveElement.length-1]
-    if( aboveElement == 'wall' || aboveElement == 'start' ) { return }
-    if( aboveElement == 'meta' ) { game.over(true); return }
+    // pobierz w tablicy klasy elementu na którym znajduje się kursor 
+    let underHover = document.elementFromPoint(x, y).classList;
+    // pobierz ostatnią klasę z listy klas elementu
+    underHover = underHover[underHover.length-1]
+    // jeżeli element jest startem albo wallem, to nie rób nic
+    if( underHover == 'wall' || underHover == 'start' ) { return }
+    // jeśli kursor jest nad metą, to wyjdź z metody checkMove wywołując game.over
+    if( underHover == 'meta' ) { return game.over( true ) }
+    // jeśli żaden z warunków nie jest spełniony to przegraj grę
     game.over( false )
   },
   release(){
@@ -210,9 +132,12 @@ const game = {
       modal.show('PRZEGRANA!', 'red')
       document.body.style.backgroundColor = "red"
     }
-    gamePlane.removeEventListener(isMobile ? 'touchend' : 'mouseup', game.release)
+    // ściągamy słuchaczy
+    gamePlane.removeEventListener('touchend', game.release)
     gamePlane.removeEventListener(isMobile ? 'touchmove' : 'mousemove', game.checkMove)
+    // przerywamy występowanie interwału
     clearInterval(game.interval)
+    // inicuj nową grę
     game.init();
   }
 }
@@ -229,7 +154,7 @@ const modal = {
   h1 : document.createElement("h1"),
   init(){
     modal.dom.style.cssText = `
-      border:10px solid green;
+      border:10px solid blue;
       position:fixed;
       width:80vw;
       height:80vh;
@@ -272,8 +197,14 @@ const modal = {
 }
 
 
+// inicuj nową grę
 modal.init()
-// modal.show('KLIKNIJ NA NIEBIESKI KAFELEK, ABY ROZPOCZĄĆ GRĘ <br/> PRZESUŃ KURSOR NA POMARAŃCZOWY, ABY WYGRAĆ')
+
+if(isMobile){
+  modal.show('DOTKNIJ NIEBIESKIEGO KAFELKA, ABY ROZPOCZĄĆ GRĘ <br/> PRZECIĄGNIJ PACLEC NA POMARAŃCZOWY, ABY WYGRAĆ')
+}else{
+  modal.show('KLIKNIJ NA NIEBIESKI KAFELEK, ABY ROZPOCZĄĆ GRĘ <br/> PRZESUŃ KURSOR NA POMARAŃCZOWY, ABY WYGRAĆ')
+}
 
 
 game.init()

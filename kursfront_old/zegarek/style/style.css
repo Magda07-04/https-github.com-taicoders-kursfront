@@ -266,7 +266,6 @@ body main .trendingWrapper .trending p {
 nav .buttons {
     padding: 2.5rem 2rem;
   }
-
   main {
     display: grid;
     grid-template-columns: 2.5fr 1fr;

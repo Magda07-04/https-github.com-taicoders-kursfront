@@ -23,10 +23,6 @@ function timeConverter(UNIX_timestamp){
 
 let list = []
 
-// fetch('https://api.openweathermap.org/data/2.5/forecast?lat=50.2649&lon=19.0238&appid=04d03c358e8933ac6823da54c340c97b&units=metric&lang=pl')
-// fetch('https://api.openweathermap.org/data/2.5/forecast?lat=12.3714&lon=1.5197&appid=04d03c358e8933ac6823da54c340c97b&units=metric&lang=pl')
-// fetch('https://api.openweathermap.org/data/2.5/forecast?lat=23.6345&lon=1.5197&appid=04d03c358e8933ac6823da54c340c97b&units=metric&lang=pl')
-// fetch('https://api.openweathermap.org/data/2.5/forecast?lat=19.4326&lon=99.1332&appid=04d03c358e8933ac6823da54c340c97b&units=metric&lang=pl')
 fetch('https://api.openweathermap.org/data/2.5/forecast?lat=25.276987&lon=55.296249&appid=f7475169b48c1a3e45bdcaa1b374c413&units=metric&lang=pl')
 .then(res => res.json())
 .then(res => {
@@ -45,29 +41,11 @@ fetch('https://api.openweathermap.org/data/2.5/forecast?lat=25.276987&lon=55.296
   // }  
 })
 
-
-// const makeWeatherCube = params => {
-//   console.log(params)
-//   const cube = document.createElement("div")
-//   cube.className = "cube"
-//   cube.innerText = "siemanko"
-//   document.querySelector(".content").append(cube)
-
-//   // stwórz nowy div (DOM)
-//   const dt_txt = document.createElement("div")
-//   // wpisz do niego wartość z API
-//   dt_txt.innerText = params.dt_txt;
-//   // przypnij go do cube'a
-//   cube.append(dt_txt)
-
-// }
-
-
-
-
 const changeCubeInfo = index => {
-  console.log( "EL: ", list[index])
+  // console.log( "EL: ", list[index])
+
   document.querySelector(".cube h3 span").innerHTML = list[index].dt_txt
+
   document.querySelector(".cube h3 img").src = 
   `https://openweathermap.org/img/wn/${list[index].weather[0].icon}.png`
 
@@ -76,7 +54,21 @@ const changeCubeInfo = index => {
   document.querySelector(".weatherMain h3").innerHTML = list[index].main.feels_like + "°C"
   
   document.querySelector(".minMax .min").innerHTML = list[index].main.temp_min + "°C"
+
   document.querySelector(".minMax .max").innerText = list[index].main.temp_max + "°C"
+}
+
+const getLatLonDependOfName = () => {
+  const value = document.querySelector("#location").value
+  fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${value}&appid=f7475169b48c1a3e45bdcaa1b374c413`)
+  .then(res => res.json())
+  .then(res => {
+    console.log("lat", res[0].lat)
+    console.log("lon", res[0].lon)
+
+    // console.log()
+  })
+
 
 
 }

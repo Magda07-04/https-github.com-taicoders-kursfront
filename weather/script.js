@@ -24,9 +24,10 @@ function timeConverter(UNIX_timestamp){
 let list = []
 
 // fetch('https://api.openweathermap.org/data/2.5/forecast?lat=50.2649&lon=19.0238&appid=04d03c358e8933ac6823da54c340c97b&units=metric&lang=pl')
-fetch('https://api.openweathermap.org/data/2.5/forecast?lat=12.3714&lon=1.5197&appid=04d03c358e8933ac6823da54c340c97b&units=metric&lang=pl')
+// fetch('https://api.openweathermap.org/data/2.5/forecast?lat=12.3714&lon=1.5197&appid=04d03c358e8933ac6823da54c340c97b&units=metric&lang=pl')
 // fetch('https://api.openweathermap.org/data/2.5/forecast?lat=23.6345&lon=1.5197&appid=04d03c358e8933ac6823da54c340c97b&units=metric&lang=pl')
 // fetch('https://api.openweathermap.org/data/2.5/forecast?lat=19.4326&lon=99.1332&appid=04d03c358e8933ac6823da54c340c97b&units=metric&lang=pl')
+fetch('https://api.openweathermap.org/data/2.5/forecast?lat=25.276987&lon=55.296249&appid=f7475169b48c1a3e45bdcaa1b374c413&units=metric&lang=pl')
 .then(res => res.json())
 .then(res => {
   // console.log(res)

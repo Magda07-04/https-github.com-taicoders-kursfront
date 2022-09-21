@@ -3,7 +3,7 @@ body {
   margin: 0;
 }
 body main {
-  border: 2px dashed red;
+  border: 5px dashed red;
 }
 body main header .city {
   border: 2px dashed blue;
@@ -35,11 +35,16 @@ body main .content #range {
   background-color: #9a905d;
 }
 body main .content .cube {
-  border: 2px dashed rgb(249, 188, 8);
+  padding: 2rem 0;
+  margin-bottom: 2rem;
+  border: 5px dashed rgb(249, 188, 8);
+  text-align: center;
+  width: 80%;
 }
 body main .content .cube h3, body main .content .cube h4 {
   margin: 0;
 }
 body main .content .cube .weatherMain .minMax {
   display: flex;
+  justify-content: center;
 }

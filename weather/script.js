@@ -22,24 +22,25 @@ function timeConverter(UNIX_timestamp){
 }
 
 let list = []
+const getWeatherInfo = (lat, lon) => {
+  fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=b1259f102d2dfed9e28cf4bb377baa9e&units=metric&lang=pl`)
+  .then(res => res.json())
+  .then(res => {
+    // console.log(res)
+    // USTAWIAMY MAIN HEADER
+    document.querySelector(".city h2").innerText = res.city.name
+    document.querySelector("img").src = "https://countryflagsapi.com/svg/"+res.city.country
+    document.querySelector(".city .sunrise").innerText = timeConverter(res.city.sunrise);
+    document.querySelector(".city .sunset").innerText = timeConverter(res.city.sunset);
 
-fetch('https://api.openweathermap.org/data/2.5/forecast?lat=25.276987&lon=55.296249&appid=f7475169b48c1a3e45bdcaa1b374c413&units=metric&lang=pl')
-.then(res => res.json())
-.then(res => {
-  // console.log(res)
-  // USTAWIAMY MAIN HEADER
-  document.querySelector(".city h2").innerText = res.city.name
-  document.querySelector("img").src = "https://countryflagsapi.com/svg/"+res.city.country
-  document.querySelector(".city .sunrise").innerText = timeConverter(res.city.sunrise);
-  document.querySelector(".city .sunset").innerText = timeConverter(res.city.sunset);
-
-  list = res.list
-  changeCubeInfo(0)
-  // console.log(res.list[0])
-  // for(const cube of res.list){
-  // makeWeatherCube(res.list[0])
-  // }  
-})
+    list = res.list
+    changeCubeInfo(0)
+    // console.log(res.list[0])
+    // for(const cube of res.list){
+    // makeWeatherCube(res.list[0])
+    // }  
+  })
+}
 
 const changeCubeInfo = index => {
   // console.log( "EL: ", list[index])
@@ -60,15 +61,10 @@ const changeCubeInfo = index => {
 
 const getLatLonDependOfName = () => {
   const value = document.querySelector("#location").value
-  fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${value}&appid=f7475169b48c1a3e45bdcaa1b374c413`)
+  fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${value}&appid=b1259f102d2dfed9e28cf4bb377baa9e`)
   .then(res => res.json())
   .then(res => {
-    console.log("lat", res[0].lat)
-    console.log("lon", res[0].lon)
-
-    // console.log()
+    getWeatherInfo(res[0].lat, res[0].lon)
   })
-
-
-
 }
+getLatLonDependOfName()

@@ -11,7 +11,13 @@
 <body>
   <header>
     <div class="searchLocation">
-      <input type="text" id="location" value="Wagadugu">
+      <input 
+        value="Alicante"
+        type="text" 
+        id="location" 
+        onclick="this.value=''"
+        placeholder="Lokalizacja"
+      />
       <button onclick="getLatLonDependOfName()">SZUKAJ</button>
     </div>
   </header>
@@ -34,6 +40,7 @@
         id="range" 
         min="0" 
         max="39"
+        value="0"
         onchange="changeCubeInfo(this.value)"
         onmousemove="changeCubeInfo(this.value)"
         ontouchmove="changeCubeInfo(this.value)"

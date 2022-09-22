@@ -103,3 +103,8 @@ body.dark {
   color: var(--dark-font-color);
   background-color: var(--dark-bg-color);
 }
+@media (min-width: 768px) {
+  body main header {
+    padding: 2rem 30%;
+  }
+}

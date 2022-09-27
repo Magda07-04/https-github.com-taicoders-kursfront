@@ -26,6 +26,7 @@ body {
   min-height: 1000px;
   font-family: 'Secular One', sans-serif;
   .bodyHeader{
+    z-index:2;
     background-color: var(--background-light);
     display:flex;
     justify-content: space-between;
@@ -197,14 +198,17 @@ body {
         .projectsWrapper{
           border:2px dashed blue;
           display:flex;
-          .project{            
+          flex-wrap: wrap;
+          justify-content: center;
+          // justify-content: space-evenly;
+
+          .project{
             cursor: pointer;
-            border:5px solid green;
             position:relative;
             aspect-ratio: 1/1;
-            width:30%;
+            width:28%;
             border-radius:0 0 1.4rem 1.4rem;
-
+            margin:.25rem;
             header{
               background-color: rgb(255, 255, 255);
               z-index: 1;
@@ -225,6 +229,23 @@ body {
               width:100%;
               height:100%;
 
+            }
+          }
+        }
+
+        // napraw space-between
+
+        .display{
+          border:5px dashed green;
+          ul{
+            margin:0;
+            padding:0;
+            display:flex;
+            border:4px dashed darkcyan;
+            justify-content: space-between;
+            li{
+              list-style-type: none;
+              border:2px dashed blue;
             }
           }
         }

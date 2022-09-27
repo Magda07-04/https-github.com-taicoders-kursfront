@@ -29,7 +29,7 @@ let list = []
 const getLatLonDependOfName = () => {
   const value = document.querySelector("#location").value
   // document.querySelector("#location").value = ""
-  fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${value}&appid=b1259f102d2dfed9e28cf4bb377baa9e`)
+  fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${value}&appid=b1259f102d2dfed9e28cf4bb377baa9e`)
   // fetch(`https://raw.githubusercontent.com/apietryga/kurs/master/api/weather/location/${value.toLowerCase()}`)
   .then(res => res.json())
   .then(res => { getWeatherInfo(res[0].lat, res[0].lon) })

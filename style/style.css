@@ -17,6 +17,9 @@
   display: flex;
   align-items: center;
 }
+* a:hover {
+  color: inherit !important;
+}
 * .material-symbols-outlined {
   margin: 0.25rem;
 }
@@ -170,6 +173,9 @@ body .wrapper .content form {
 body .wrapper .content form input, body .wrapper .content form textarea {
   padding: 10px;
 }
+body .wrapper .content .projects {
+  border: 2px dashed red;
+}
 body footer {
   /* border:2px dashed red; */
   margin-top: 3rem;
@@ -200,7 +206,6 @@ body footer p {
     display: none;
   }
   body .wrapper {
-    min-height: 70vh;
     flex-direction: row;
   }
   body .wrapper:nth-child(odd) {

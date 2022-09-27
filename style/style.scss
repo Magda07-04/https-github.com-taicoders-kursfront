@@ -13,6 +13,7 @@
     color:inherit;
     display:flex;
     align-items: center;
+    &:hover{ color:inherit !important; }
   }
   .material-symbols-outlined{
     margin:.25rem;
@@ -185,6 +186,28 @@ body {
 
       }
 
+
+
+
+
+
+      .projects{
+        border:2px dashed red;
+
+
+
+      }
+
+
+
+
+
+
+
+
+
+
+
     }
   }
 
@@ -224,7 +247,7 @@ body{
   }
 
   .wrapper{
-    min-height:70vh;
+    // min-height:70vh;
     flex-direction: row;
     &:nth-child(odd){
       flex-direction: row-reverse;

@@ -194,6 +194,26 @@ body {
       .projects{
         border:2px dashed red;
 
+        .projectsWrapper{
+          border:2px dashed blue;
+          display:flex;
+          .project{
+            border:5px dashed green;
+            position:relative;
+            header{
+              border:5px dashed #fff;
+            }
+            img{
+              border:5px dashed #000;
+              position:absolute;
+              left:0;
+              top:0;
+              width:100%;
+              height:100%;
+
+            }
+          }
+        }
 
 
       }

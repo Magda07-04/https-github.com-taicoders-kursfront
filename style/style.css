@@ -181,14 +181,27 @@ body .wrapper .content .projects .projectsWrapper {
   display: flex;
 }
 body .wrapper .content .projects .projectsWrapper .project {
-  border: 5px dashed green;
+  cursor: pointer;
+  border: 5px solid green;
   position: relative;
+  aspect-ratio: 1/1;
+  width: 30%;
+  border-radius: 0 0 1.4rem 1.4rem;
 }
 body .wrapper .content .projects .projectsWrapper .project header {
-  border: 5px dashed #fff;
+  background-color: rgb(255, 255, 255);
+  z-index: 1;
+  position: relative;
+}
+body .wrapper .content .projects .projectsWrapper .project header h3 {
+  margin: 0;
+}
+body .wrapper .content .projects .projectsWrapper .project header p {
+  opacity: 0;
+  display: none;
 }
 body .wrapper .content .projects .projectsWrapper .project img {
-  border: 5px dashed #000;
+  border-radius: 1.2rem;
   position: absolute;
   left: 0;
   top: 0;

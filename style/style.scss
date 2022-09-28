@@ -326,12 +326,14 @@ body{
   .wrapper{
     // min-height:70vh;
     flex-direction: row;
+    text-align: right;
     &:nth-child(odd){
+      text-align: left;
       flex-direction: row-reverse;
     }
     > * { 
       flex:1;
-      text-align: center;
+      // text-align: center;
       padding:3rem;
     }
    }

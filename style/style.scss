@@ -207,6 +207,7 @@ body {
             position:relative;
             aspect-ratio: 1/1;
             width:28%;
+            max-width: 7rem;
             border-radius:0 0 1.4rem 1.4rem;
             margin:.25rem;
             header{
@@ -233,8 +234,6 @@ body {
           }
         }
 
-        // napraw space-between
-
         .display{
           border:5px dashed green;
           ul{
@@ -246,6 +245,30 @@ body {
             li{
               list-style-type: none;
               border:2px dashed blue;
+            }
+          }
+
+          article{
+            position: relative;
+            display:inline-block;
+
+            .displayContent{
+              position:absolute;
+              width:100%;
+              height:100%;
+              display:flex;
+              flex-direction: column;
+              justify-content: end;
+              align-items: end;
+              text-align: right;
+              h3, p{
+                margin:0;
+                padding:.5rem 1.5rem;
+                background-color: rgba(240, 248, 255, 0.735);
+              }
+            }
+            img{
+              max-height:40vh;
             }
           }
         }

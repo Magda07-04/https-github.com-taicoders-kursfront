@@ -8,3 +8,4 @@ document
     document.querySelector('.display a').href = project.querySelector('a').href
   }
 })
+document.querySelector('.project').click()

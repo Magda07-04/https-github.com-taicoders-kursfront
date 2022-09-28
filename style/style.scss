@@ -193,10 +193,8 @@ body {
 
 
       .projects{
-        border:2px dashed red;
 
         .projectsWrapper{
-          border:2px dashed blue;
           display:flex;
           flex-wrap: wrap;
           justify-content: center;
@@ -235,16 +233,17 @@ body {
         }
 
         .display{
-          border:5px dashed green;
+          background-color: #f6f5f44e;
+          display:flex;
+          flex-direction: column;
+          align-items: center;
           ul{
             margin:0;
             padding:0;
             display:flex;
-            border:4px dashed darkcyan;
             justify-content: space-between;
             li{
               list-style-type: none;
-              border:2px dashed blue;
             }
           }
 

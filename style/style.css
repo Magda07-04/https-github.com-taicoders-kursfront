@@ -174,11 +174,7 @@ body .wrapper .content form {
 body .wrapper .content form input, body .wrapper .content form textarea {
   padding: 10px;
 }
-body .wrapper .content .projects {
-  border: 2px dashed red;
-}
 body .wrapper .content .projects .projectsWrapper {
-  border: 2px dashed blue;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -213,18 +209,19 @@ body .wrapper .content .projects .projectsWrapper .project img {
   height: 100%;
 }
 body .wrapper .content .projects .display {
-  border: 5px dashed green;
+  background-color: rgba(246, 245, 244, 0.3058823529);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 body .wrapper .content .projects .display ul {
   margin: 0;
   padding: 0;
   display: flex;
-  border: 4px dashed darkcyan;
   justify-content: space-between;
 }
 body .wrapper .content .projects .display ul li {
   list-style-type: none;
-  border: 2px dashed blue;
 }
 body .wrapper .content .projects .display article {
   position: relative;
